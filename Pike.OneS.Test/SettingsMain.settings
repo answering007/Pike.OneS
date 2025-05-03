@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pike.OneS.Test" GeneratedClassName="SettingsMain">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ProgId=V83.ComConnector;Srvr=WIN-U7DLHOF76FQ;Ref=Accounting2Server;Usr=Integration;Pwd=Password123</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>
+Вызов 32-битных COM-объектов на стороне 64-битного сервера 1С | Книга знаний kb.mista.ru</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body background="css/fon_forum.gif">
+<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td><h2><a href="index.php" style="text-decoration:none; color=#990066">Книга знаний</a></h2></td>
+<td width="486">	
+	<div align="center">
+	        <img src="file://C:\Windows\transp.gif" >
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:468px;height:60px"
+            data-ad-client="ca-pub-9355270728068908"
+            data-ad-slot="8622928218"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>	</div>
+	
+</td>
+</tr>
+</table>
+<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td><a href="http://kb.mista.ru/index.php?forum=1c">1С:Предприятие</a> / <a href="http://kb.mista.ru/index.php?forum=1c&area=prog">Приемы программирования</a> / <a href="http://kb.mista.ru/index.php?forum=1c&area=olecom">OLE, COM</a></td>
+</tr>
+</table>
+<table width="97%" border="0" align="center" cellpadding="3" cellspacing="0">
+<tr>
+<td></td>
+<td width="300"><div align="right"><br>
+</div></td>
+</tr>
+</table>
+<table width="97%" STYLE="table-layout:fixed; word-wrap: break-word" border="1" align="center" cellpadding="15" cellspacing="0" bordercolor="#CCCCCC" bgcolor="#FFFFFF"><col width="100%">
+<tr>
+<td>
+
+<h2><center><font color="blue">Вызов 32-битных COM-объектов на стороне 64-битного сервера 1С</font></center></h2><table border="0"><TR><TD width="50%" align="left" valign="top"><i>Нужно, например для вызова V82.ComConnector (а он как известно 32-битный) на стороне 64-битного сервера 1С.<br>Или любого x32 COM-объекта из 64-битного приложения.</i><TD><TD width="50%" align="right" valign="top">Автор статьи: <a href="http://www.forum.mista.ru/users.php?action=show&id=27758">Стальная Крыса</a> | Редакторы: <br>Последняя редакция №4 от 16.02.12 | <a rel="nofollow" href="history.php?id=870">История</a><br>URL: <a href="http://kb.mista.ru/article.php?id=870">http://kb.mista.ru/article.php?id=870</a><TD></TR></table><br>Ключевые слова: x64 сервер 1С, ComConnector, COM+<br><br><br>Идея не моя, ссылку на тырнет не сохранил.<br>Инструкция описана для Windows Server 2008 R2 x64 (в других версиях может быть что-то по-другому, но общий смысл наверное такой же)<br><br><H2>Запуск x32 COM-объектов из x64 приложения</H2><br><B>(создание "COM+ обертки")</B><br><P>Нужно, например для вызова <B>V82.ComConnector</B> на стороне 64-битного сервера 1С.</P><P>Это происходит потому, что 64 битные приложения не могут запускать 32 битные DLL которые активируются при запуске 32 битного COM объекта 1С. Для решения проблемы нужно воспользоваться оберткой COM+ которая являясь 64 битным приложением может взаимодействовать с 32 битными библиотеками.<br></P><P><B>Для это необходимо выполнить следующие шаги (пошаговая инструкция):</B></P><br><OL><LI>Запускаем консоль "Службы компонентов" (например: <PRE>Пуск -&gt; Администрирование -&gt; Службы компонентов)</PRE>.</LI><br><LI>В ветке Приложения COM+ добавляем новое приложение: <PRE>Создать -&gt; Приложение</PRE></LI><LI>На вопрос "Установка или создание нового приложения" - выбираем "Создать новое приложение".</LI><br><LI>Имя нового приложения лучше написать чтобы было понятно о чем речь: V8_ComConnector, способ активации - "серверное приложение".</LI><LI>Учетная запись для запуска приложения: выбираем учетку под которой стартует сервер 1С.</LI><br><LI>В ветке созданного приложения переходим на ветку <B>"Роли"</B> открываем роль <B>"CreatorOwner"</B> и далее в разделе <B>"Пользователи"</B> создаем пользователя - учетную запись под которой работает сервер 1С.</LI><LI>В ветке созданного приложения переходим на ветку <B>"Компоненты"</B> и создаем компонент: <PRE>Создать -&gt; Компонент</PRE></LI><br><LI>Выбираем <B>"Установка новых компонентов"</B>, и в диалоге выбираем нужную DLL-ку (в данном примере: <B>comcntr.dll</B>)</LI><LI>Открываем свойства только что созданного компонента, идем на вкладку "Безопасность", проверяем в списке "Явно установленные для выделенных объектов роли" стоит ли "птичка" напротив роль CreatorOwner - если нет, тогда устанавливаем эту "птичку".</LI><br></OL><P>Вызов осуществляется по имени созданного COM+ компонента. В данном примере надо создавать COM-объект с ProgID = "V8_ComConnector". <font color="red">Версия 8.3.8.2027 - вызов по <B>"V83.ComConnector"</B> после регистрации COM+ указанным методом</font><br><PRE>Объект = новый COMОбъект("V8_ComConnector");</PRE></P><P>Не надо забывать, что созданная надстройка работает только в 64-битном приложении. Если нужно, чтобы конфигурация 1С работала еще и файловом варианте на 32-битных машинах - тогда нужно соответствующие части кода "обертывать" в препроцессорные инструкции.</P></td>
+</tr></table>
+<div id="socialbuttons" style="width:97%;margin:0 auto;"><a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cbc03f04d7d492e"><img src="http://s7.addthis.com/static/btn/v2/lg-bookmark-en.gif" width="125" height="16" alt="Закладка" style="border:0"/></a>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cbc03f04d7d492e"></script></div><br>
+<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr> 
+    <td width="91%"><p><font size="2" face="Arial, Helvetica, sans-serif"> 
+        <a href="article.php?id=31" target="_blank">Описание</a>
+	 | <a href="tree.php">Рубрикатор</a> 
+        | <a href="find.php" target="_blank">Поиск</a>
+        | <a href="article.php?id=178">ТелепатБот</a>
+        | <a href="index.php?captured=1">Захваченные статьи</a>
+	 | <a href="kb_settings.php">Установки</a>
+        | <a href="http://www.forum.mista.ru/">Форум</a>
+         <br>&copy; <a href="mailto:stasmit@mail.ru" target="_blank">Станислав Митичкин (Волшебник)</a>, 2005-2011 
+	 | <a href="http://www.mista.ru" target="_blank">Mista.ru</a></font></td>
+    <td width="9%" height="30" valign="middle"> <div align="right"> 
+        <div align="right"><font color="#330099" size="5" face="Times New Roman, Times, serif"><b>
+
+
+          </b></font></div>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>
