@@ -2,14 +2,13 @@
 -----
 
 **Table of Contents**
-
-- [.Net assembly to get data from 1C](#.Net-assembly-to-get-data-from-1C)
+<!--TOC-->
   - [Overview](#overview)
-  - [Installation](#installation)
   - [Usage](#usage)
-      - [Late binding wrapper](#Late-binding-wrapper)
-      - [ADO.Net provider based on wrapper](#ADO.Net-provider-based-on-wrapper)
+    - [COM late binding wrapper](#com-late-binding-wrapper)
+    - [ADO.Net provider based on wrapper:](#ado.net-provider-based-on-wrapper)
   - [License](#license)
+<!--/TOC-->
 
 ## Overview
 
@@ -18,16 +17,9 @@ This provider use ComСonnector and WebServise to get data from 1C database:
 2. ADO.Net provider based on wrapper
 3. ADO.Net provider based on 1C webservice
 
-## Installation
-
-1. Download latest release
-2. Copy **messageserver-X.jar** file to **SpigotServer\plugins** folder
-3. Start spigot server or send `reload` command from server console
-
 ## Usage
 
-### Late binding wrapper:
-Basic example:
+### COM late binding wrapper
 ```csharp
 using (var dbConnection = new OneSConnector())
 {

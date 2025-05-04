@@ -22,8 +22,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public override string ConnectionString
         {
-            get { return _builder.ToString(); }
-            set { _builder = OneSDbConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value); }
+            get => _builder.ToString();
+            set => _builder = OneSDbConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value);
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pike.OneS.Data
         #region No need to implement
 
         /// <summary>
-        /// Starts a database transaction. Currently throw <see cref="NotImplementedException"/>
+        /// Starts a database transaction. Currently, throw <see cref="NotImplementedException"/>
         /// </summary>
         /// <param name="isolationLevel">A <see cref="IsolationLevel"/> object</param>
         /// <returns></returns>
@@ -118,7 +118,7 @@ namespace Pike.OneS.Data
         }
 
         /// <summary>
-        /// Changes the current database for an open connection.  Currently throw <see cref="NotImplementedException"/>
+        /// Changes the current database for an open connection. Currently, throw <see cref="NotImplementedException"/>
         /// </summary>
         /// <param name="databaseName">Specifies the name of the database for the connection to use</param>
         public override void ChangeDatabase(string databaseName)

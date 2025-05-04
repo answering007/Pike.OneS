@@ -17,8 +17,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public override string ConnectionString
         {
-            get { return _builder.ToString(); }
-            set { _builder = WebServiceConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value); }
+            get => _builder.ToString();
+            set => _builder = WebServiceConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pike.OneS.WebService
 
         /// <inheritdoc />
         /// <summary>
-        /// Starts a database transaction. Currently throw new <see cref="NotSupportedException"/>
+        /// Starts a database transaction. Currently, throw new <see cref="NotSupportedException"/>
         /// </summary>
         /// <param name="isolationLevel">A <see cref="T:System.Data.IsolationLevel" /> object</param>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace Pike.OneS.WebService
 
         /// <inheritdoc />
         /// <summary>
-        /// Changes the current database for an open connection. Currently throw new <see cref="NotSupportedException"/>
+        /// Changes the current database for an open connection. Currently, throw new <see cref="NotSupportedException"/>
         /// </summary>
         /// <param name="databaseName">Specifies the name of the database for the connection to use</param>
         public override void ChangeDatabase(string databaseName)

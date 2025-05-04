@@ -17,12 +17,12 @@ namespace Pike.OneS.Data
         const string UserKey = OneSConnectionStringBuilder.UserKey;
         const string PasswordKey = OneSConnectionStringBuilder.PasswordKey;
 
-        static readonly string[] KeyConstans = { ProgIdKey, FileKey, ServerKey, DatabaseKey, UserKey, PasswordKey };
+        static readonly string[] KeyConstants = { ProgIdKey, FileKey, ServerKey, DatabaseKey, UserKey, PasswordKey };
 
         /// <summary>
         /// Collection of keys
         /// </summary>
-        public override ICollection Keys => KeyConstans;
+        public override ICollection Keys => KeyConstants;
 
         /// <summary>
         /// Get the value for the specific key
@@ -34,17 +34,17 @@ namespace Pike.OneS.Data
             get
             {
                 if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!KeyConstans.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstans)}");
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 return base[keyword];
             }
             set
             {
                 if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!KeyConstans.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstans)}");
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 if (value == null) throw new ArgumentNullException(nameof(value));
                 base[keyword] = value;
             }
@@ -55,8 +55,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string ProgId
         {
-            get { return this[ProgIdKey] as string; }
-            set { this[ProgIdKey] = value; }
+            get => this[ProgIdKey] as string;
+            set => this[ProgIdKey] = value;
         }
 
         /// <summary>
@@ -64,8 +64,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string File
         {
-            get { return this[FileKey] as string; }
-            set { this[FileKey] = value; }
+            get => this[FileKey] as string;
+            set => this[FileKey] = value;
         }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string Server
         {
-            get { return this[ServerKey] as string; }
-            set { this[ServerKey] = value; }
+            get => this[ServerKey] as string;
+            set => this[ServerKey] = value;
         }
 
         /// <summary>
@@ -82,8 +82,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string Database
         {
-            get { return this[DatabaseKey] as string; }
-            set { this[DatabaseKey] = value; }
+            get => this[DatabaseKey] as string;
+            set => this[DatabaseKey] = value;
         }
 
         /// <summary>
@@ -91,8 +91,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string User
         {
-            get { return this[UserKey] as string; }
-            set { this[UserKey] = value; }
+            get => this[UserKey] as string;
+            set => this[UserKey] = value;
         }
 
         /// <summary>
@@ -100,8 +100,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string Password
         {
-            get { return this[PasswordKey] as string; }
-            set { this[PasswordKey] = value; }
+            get => this[PasswordKey] as string;
+            set => this[PasswordKey] = value;
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Pike.OneS.Data
 
             var rst = new OneSDbConnectionStringBuilder();
             var values = connectionString.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var key in KeyConstans)
+            foreach (var key in KeyConstants)
             {
                 var startToken = key + "=";
                 var kv = values.FirstOrDefault(v => v.StartsWith(startToken, StringComparison.InvariantCultureIgnoreCase));
@@ -138,7 +138,7 @@ namespace Pike.OneS.Data
         {
             var rst = new OneSConnectionStringBuilder();
 
-            var keys = KeyConstans.Where(k => !k.Equals(ProgIdKey, StringComparison.InvariantCultureIgnoreCase)).ToArray();
+            var keys = KeyConstants.Where(k => !k.Equals(ProgIdKey, StringComparison.InvariantCultureIgnoreCase)).ToArray();
             foreach (var key in keys)
             {
                 if (!ContainsKey(key)) continue;

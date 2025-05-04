@@ -55,17 +55,17 @@ namespace Pike.OneS
         /// The number of simultaneous connections include the number of connections in the external connections pool. The default value of 0 (not limited).
         /// Sets a property only when the object was created in Multi-threaded Apartment (MTA)
         /// </summary>
-        public int MaxConnections { set { _comConnector.MaxConnections = value; }}
+        public int MaxConnections { set => _comConnector.MaxConnections = value; }
 
         /// <summary>
         /// Set the maximum number of connections with the information base which may simultaneously be in pool
         /// </summary>
-        public int PoolCapacity { set { _comConnector.PoolCapacity = value; } }
+        public int PoolCapacity { set => _comConnector.PoolCapacity = value; }
 
         /// <summary>
         /// Set the maximum time to stay connection unused. After this time the unused connection is released.
         /// </summary>
-        public TimeSpan PoolTimeout { set { _comConnector.PoolTimeout = value.TotalSeconds; } }
+        public TimeSpan PoolTimeout { set => _comConnector.PoolTimeout = value.TotalSeconds; }
 
         /// <summary>
         /// Implementation of <see cref="IDisposable"/> interface
@@ -95,7 +95,7 @@ namespace Pike.OneS
         /// Create an instance of <see cref="OneSXmlWriter"/>
         /// </summary>
         /// <returns>New instance of <see cref="OneSXmlWriter"/> </returns>
-        public OneSXmlWriter CreateOneSxmlWriter()
+        public OneSXmlWriter CreateOneSXmlWriter()
         {
             if (!IsConnected) throw new InvalidOperationException("Connector is not connected");
 

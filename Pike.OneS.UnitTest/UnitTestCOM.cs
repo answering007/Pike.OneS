@@ -13,9 +13,9 @@ namespace Pike.OneS.UnitTest
         {
             _oneSConnectionStringBuilder = new OneSConnectionStringBuilder
             {
-                Database = "Accounting2Server",
-                Server = "WIN-U7DLHOF76FQ",
-                User = "Абдулов (директор)"
+                Database = SettingsConnection.Default.Database,
+                Server = SettingsConnection.Default.Server,
+                User = SettingsConnection.Default.User
             };
         }
 
@@ -33,13 +33,13 @@ namespace Pike.OneS.UnitTest
                 dbConnection.Connect(_oneSConnectionStringBuilder);
                 using (var dbCommand = new OneSQuery(dbConnection))
                 {
-                    dbCommand.Text = UnitTestHelper.BasicQuery;
+                    dbCommand.Text = TestHelper.BasicQuery;
 
                     using (var queryResult = dbCommand.Execute())
                     {
                         var tbl = queryResult.ToDataTable();
 
-                        UnitTestHelper.BasicCompare(tbl);
+                        TestHelper.BasicCompare(tbl);
                     }
                 }
             }
@@ -53,13 +53,13 @@ namespace Pike.OneS.UnitTest
                 dbConnection.Connect(_oneSConnectionStringBuilder);
                 using (var dbCommand = new OneSQuery(dbConnection))
                 {
-                    dbCommand.Text = UnitTestHelper.BasicQuery;
+                    dbCommand.Text = TestHelper.BasicQuery;
 
                     using (var queryResult = dbCommand.Execute())
                     {
                         var tbl = queryResult.DeserializeFromValueTable();
 
-                        UnitTestHelper.BasicCompare(tbl);
+                        TestHelper.BasicCompare(tbl);
                     }
                 }
             }

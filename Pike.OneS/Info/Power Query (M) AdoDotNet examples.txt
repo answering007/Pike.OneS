@@ -1,4 +1,4 @@
-Power Query (M) AdoDotNet examples:
+﻿Power Query (M) AdoDotNet examples:
 
 //SQL Database info
 let

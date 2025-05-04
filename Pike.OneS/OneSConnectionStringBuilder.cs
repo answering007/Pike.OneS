@@ -50,8 +50,7 @@ namespace Pike.OneS
                 if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
                 if (!_keys.Contains(keyword))
                     throw new ArgumentException(
-                        string.Format("Given keyword is not supported. Supported keyword are: {0}",
-                            string.Join(",", _keys)));
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", _keys)}");
                 return base[keyword];
             }
             set
@@ -59,8 +58,7 @@ namespace Pike.OneS
                 if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
                 if (!_keys.Contains(keyword))
                     throw new ArgumentException(
-                        string.Format("Given keyword is not supported. Supported keyword are: {0}",
-                            string.Join(",", _keys)));
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", _keys)}");
                 if (value == null) throw new ArgumentNullException(nameof(value));
                 base[keyword] = value;
             }
@@ -71,8 +69,8 @@ namespace Pike.OneS
         /// </summary>
         public string File
         {
-            get { return this[FileKey] as string; }
-            set { this[FileKey] = value; }
+            get => this[FileKey] as string;
+            set => this[FileKey] = value;
         }
 
         /// <summary>
@@ -80,8 +78,8 @@ namespace Pike.OneS
         /// </summary>
         public string Server
         {
-            get { return this[ServerKey] as string; }
-            set { this[ServerKey] = value; }
+            get => this[ServerKey] as string;
+            set => this[ServerKey] = value;
         }
 
         /// <summary>
@@ -89,8 +87,8 @@ namespace Pike.OneS
         /// </summary>
         public string Database
         {
-            get { return this[DatabaseKey] as string; }
-            set { this[DatabaseKey] = value; }
+            get => this[DatabaseKey] as string;
+            set => this[DatabaseKey] = value;
         }
 
         /// <summary>
@@ -98,8 +96,8 @@ namespace Pike.OneS
         /// </summary>
         public string User
         {
-            get { return this[UserKey] as string; }
-            set { this[UserKey] = value; }
+            get => this[UserKey] as string;
+            set => this[UserKey] = value;
         }
 
         /// <summary>
@@ -107,8 +105,8 @@ namespace Pike.OneS
         /// </summary>
         public string Password
         {
-            get { return this[PasswordKey] as string; }
-            set { this[PasswordKey] = value; }
+            get => this[PasswordKey] as string;
+            set => this[PasswordKey] = value;
         }
     }
 }

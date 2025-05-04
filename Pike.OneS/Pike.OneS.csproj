@@ -67,7 +67,6 @@
     <Compile Include="Data\OneSDbParameter.cs" />
     <Compile Include="Data\OneSDbParameterCollection.cs" />
     <Compile Include="Data\OneSDbProviderFactory.cs" />
-    <Compile Include="Data\OneSDbHelper.cs" />
     <Compile Include="Install\DataProviderInstallationBase.cs" />
     <Compile Include="Install\DbProviderInstallation.cs" />
     <Compile Include="Install\InstallerMain.cs">
@@ -80,7 +79,6 @@
     <Compile Include="KnownTypes.cs" />
     <Compile Include="OneSArray.cs" />
     <Compile Include="OneSBaseComObject.cs" />
-    <Compile Include="OneSQueryHelper.cs" />
     <Compile Include="OneSQueryResultColumn.cs" />
     <Compile Include="OneSConnectionStringBuilder.cs" />
     <Compile Include="OneSConnector.cs" />
@@ -111,7 +109,6 @@
     <None Include="Info\Excel %28Power Query%29\Web-сервис через AdoNet.xlsx" />
     <None Include="Info\Excel %28Power Query%29\Web-сервис.xlsx" />
     <None Include="Info\Pike.OneS.Test.zip" />
-    <None Include="Info\WebService\ОбработкаWebIntegration.epf" />
     <None Include="key.snk" />
     <None Include="README.md" />
   </ItemGroup>
@@ -126,6 +123,11 @@
     <Content Include="Pike.OneS.Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+cd $(TargetDir)
+del Pike.OneS.pdb )</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

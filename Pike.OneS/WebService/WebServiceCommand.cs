@@ -29,7 +29,7 @@ namespace Pike.OneS.WebService
         /// </summary>
         public override CommandType CommandType
         {
-            get { return CommandType.Text; }
+            get => CommandType.Text;
             set { if (value != CommandType.Text) throw new NotSupportedException(); }
         }
 
@@ -73,7 +73,7 @@ namespace Pike.OneS.WebService
 
         /// <inheritdoc />
         /// <summary>
-        /// Attempts to cancels the execution. Throw new <see cref="NotSupportedException"/>
+        /// Attempts to cancel the execution. Throw new <see cref="NotSupportedException"/>
         /// </summary>
         public override void Cancel()
         {
@@ -99,8 +99,7 @@ namespace Pike.OneS.WebService
         protected override DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
         {
             if (DbConnection == null) throw new InvalidOperationException("DbConnection can't be null");
-            var connection = DbConnection as WebServiceConnection;
-            if (connection == null) throw new InvalidCastException("Unable to cast DbConnection to the WebServiceConnection");
+            if (!(DbConnection is WebServiceConnection connection)) throw new InvalidCastException("Unable to cast DbConnection to the WebServiceConnection");
             if (connection.State != ConnectionState.Open) throw new InvalidOperationException("Connection must be open");
             if (string.IsNullOrWhiteSpace(CommandText)) throw new InvalidOperationException("CommandText can't be null or empty");
 
@@ -119,18 +118,15 @@ namespace Pike.OneS.WebService
         /// <returns>The number of rows affected</returns>
         public override int ExecuteNonQuery()
         {
-            if (DbConnection == null) throw new InvalidOperationException("DbConnection can't be null");
-            var connection = DbConnection as WebServiceConnection;
-            if (connection == null) throw new InvalidCastException("Unable to cast DbConnection to the WebServiceConnection");
-            if (connection.State != ConnectionState.Open) throw new InvalidOperationException("Connection must be open");
-            if (string.IsNullOrWhiteSpace(CommandText)) throw new InvalidOperationException("CommandText can't be null or empty");
+            using (var reader = ExecuteReader())
+            {
+                if (!reader.HasRows) return 0;
 
-            var builder = WebServiceConnectionStringBuilder.Parse(connection.ConnectionString);
-            var webService =
-                new WebServiceRequest(builder, CommandText) { Timeout = TimeSpan.FromSeconds(CommandTimeout) };
-            webService.QueryData();
-
-            return webService.ResulTable.Rows.Count;
+                var count = 0;
+                while (reader.Read())
+                    count++;
+                return count;
+            }
         }
 
         /// <inheritdoc />
@@ -140,21 +136,13 @@ namespace Pike.OneS.WebService
         /// <returns>The first column of the first row in the result set</returns>
         public override object ExecuteScalar()
         {
-            if (DbConnection == null) throw new InvalidOperationException("DbConnection can't be null");
-            var connection = DbConnection as WebServiceConnection;
-            if (connection == null) throw new InvalidCastException("Unable to cast DbConnection to the WebServiceConnection");
-            if (connection.State != ConnectionState.Open) throw new InvalidOperationException("Connection must be open");
-            if (string.IsNullOrWhiteSpace(CommandText)) throw new InvalidOperationException("CommandText can't be null or empty");
+            using (var reader = ExecuteReader())
+            {
+                if (!reader.HasRows) return null;
 
-            var builder = WebServiceConnectionStringBuilder.Parse(connection.ConnectionString);
-            var webService =
-                new WebServiceRequest(builder, CommandText) { Timeout = TimeSpan.FromSeconds(CommandTimeout) };
-            webService.QueryData();
-
-            object rst = null;
-            if (webService.ResulTable.Columns.Count > 0 && webService.ResulTable.Rows.Count > 0)
-                rst = webService.ResulTable.Rows[0][0];
-            return rst ?? DBNull.Value;
+                reader.Read();
+                return reader[0];
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-Функция GetQueryResult(QueryText)
+﻿Функция GetQueryResult(QueryText)
 	//Имя вэб-сервиса: WebIntegration
 	// Вставить содержимое обработчика.
 	Запрос = Новый Запрос(QueryText);

@@ -28,7 +28,7 @@ namespace Pike.OneS
         /// </summary>
         public string Text
         {
-            get { return ComObject.Text; }
+            get => ComObject.Text;
             set
             {
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("value can't be null or empty");

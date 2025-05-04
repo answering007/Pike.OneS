@@ -5,7 +5,7 @@ using System.Data.Common;
 
 namespace Pike.OneS.UnitTest
 {
-    internal static class UnitTestHelper
+    internal static class TestHelper
     {
         public const string BasicQuery = @"ВЫБРАТЬ 1, ДАТАВРЕМЯ(2018, 03, 15, 1, 2, 3), ""Привет"", ИСТИНА";
 

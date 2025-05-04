@@ -76,7 +76,7 @@ namespace Pike.OneS.WebService
             return request;
         }
 
-        void FillResponce(WebRequest request)
+        void FillResponse(WebRequest request)
         {
             //Write content to then request stream
             using (var dataStream = request.GetRequestStream())
@@ -98,7 +98,6 @@ namespace Pike.OneS.WebService
                         var returnNode = xmlResponse.Descendants().FirstOrDefault(n =>
                             n.Name.LocalName.Equals("return", StringComparison.InvariantCultureIgnoreCase));
                         if (returnNode == null) throw new InvalidOperationException("Response return node is null");
-                        //_valueTable = XDocument.Parse(xmlResponse.Root.Value);
                         _valueTable = XDocument.Parse(returnNode.Value);
                     }
                 }
@@ -204,10 +203,9 @@ namespace Pike.OneS.WebService
         /// <param name="query">Query to execute</param>
         public WebServiceRequest(WebServiceConnectionStringBuilder builder, string query)
         {
-            if (builder == null) throw new ArgumentNullException(nameof(builder));
             if (string.IsNullOrWhiteSpace(query)) throw new ArgumentException("query can't be null or empty");
 
-            ConnectionStringBuilder = builder;
+            ConnectionStringBuilder = builder ?? throw new ArgumentNullException(nameof(builder));
             Query = query;
 
             var content = string.Format(ContentPattern, ConnectionStringBuilder.UriNamespace, Query);
@@ -220,7 +218,7 @@ namespace Pike.OneS.WebService
         public void QueryData()
         {
             var request = CreateRequest();
-            FillResponce(request);
+            FillResponse(request);
             var rawColumns = ParseRawColumns();
             ResetTable(rawColumns);
             FillDataTable(rawColumns);

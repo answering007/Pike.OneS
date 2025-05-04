@@ -26,8 +26,8 @@ namespace Pike.OneS
         /// <returns>Value</returns>
         public object this[int index]
         {
-            get { return ComObject.Get(index); }
-            set { ComObject.Set(index, value); }
+            get => ComObject.Get(index);
+            set => ComObject.Set(index, value);
         }
 
         /// <summary>
@@ -37,13 +37,11 @@ namespace Pike.OneS
         /// <returns>Value</returns>
         public object this[string name]
         {
-            get
-            {
-                return ComObject.GetType().InvokeMember(name,
+            get =>
+                ComObject.GetType().InvokeMember(name,
                     BindingFlags.Public | BindingFlags.GetProperty,
                     null, ComObject,
                     null);
-            }
             set
             {
                 ComObject.GetType().InvokeMember(name,

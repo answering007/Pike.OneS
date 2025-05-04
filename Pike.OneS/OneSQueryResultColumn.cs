@@ -58,7 +58,7 @@ namespace Pike.OneS
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format("Name={0}; Type={1}", Name, IsDefined ? ManagedType.Name : "Unknown");
+            return $"Name={Name}; Type={(IsDefined ? ManagedType.Name : "Unknown")}";
         }
     }
 }

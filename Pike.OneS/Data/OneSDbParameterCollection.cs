@@ -64,7 +64,7 @@ namespace Pike.OneS.Data
         }
 
         /// <summary>
-        /// Adds the parameter by it's name and value
+        /// Adds the parameter by its name and value
         /// </summary>
         /// <param name="parameterName">The name of the parameter</param>
         /// <param name="value">The value of the parameter</param>
