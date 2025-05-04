@@ -3,13 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="Database" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Accounting2Server</Value>
+      <Value Profile="(Default)">AccountingServer</Value>
     </Setting>
     <Setting Name="Server" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">WIN-U7DLHOF76FQ</Value>
+      <Value Profile="(Default)">192.168.189.129</Value>
     </Setting>
     <Setting Name="User" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Абдулов (директор)</Value>
+    </Setting>
+    <Setting Name="ProgId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">V83.ComConnector</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,26 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pike.OneS.WebService;
+using Pike.OneS.Data;
 using System.Data;
 
-namespace Pike.OneS.UnitTest.Tests
+namespace Pike.OneS.UnitTest.Tests.OneSDb
 {
     [TestClass]
-    public class WebServiceTest
+    public class OneSDbCommandTest
     {
-        [TestMethod]
-        public void TestNativeWebService()
-        {
-            var serviceRequest = new WebServiceRequest(ConnectionStringBuilder.WebServiceConnectionStringBuilder, TestHelper.BasicQuery);
-            serviceRequest.QueryData();
-            TestHelper.BasicCompare(serviceRequest.ResulTable);
-        }
-
         [TestMethod]
         public void TestOneSDbCommandResult()
         {
-            using (var dbConnection = new WebServiceConnection())
+            using (var dbConnection = new OneSDbConnection())
             {
-                dbConnection.ConnectionString = ConnectionStringBuilder.WebServiceConnectionStringBuilder.ConnectionString;
+                dbConnection.ConnectionString = ConnectionStringBuilder.OneSDbConnectionStringBuilder.ConnectionString;
                 dbConnection.Open();
                 using (var dbCommand = dbConnection.CreateCommand())
                 {

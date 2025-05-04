@@ -55,6 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionStringBuilder.cs" />
     <Compile Include="SettingsConnection.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -66,8 +67,10 @@
       <DependentUpon>SettingsWebService.settings</DependentUpon>
     </Compile>
     <Compile Include="Tests\DbProviderFactoryTest.cs" />
-    <Compile Include="Tests\OneSConnectorTest.cs" />
-    <Compile Include="UnitTestCOM.cs" />
+    <Compile Include="Tests\OneSDb\OneSDbConnectionTest.cs" />
+    <Compile Include="Tests\OneSDb\OneSDbCommandTest.cs" />
+    <Compile Include="Tests\OneS\OneSConnectorTest.cs" />
+    <Compile Include="Tests\OneS\OneSQueryTest.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="Tests\WebServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
