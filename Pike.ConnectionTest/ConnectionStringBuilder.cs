@@ -11,8 +11,8 @@ namespace Pike.ConnectionTest
                 ProgId = SettingsConnection.Default.ProgId,
                 Ref = SettingsConnection.Default.Database,
                 Srvr = SettingsConnection.Default.Server,
-                Usr = SettingsConnection.Default.User,
-                Pwd = SettingsConnection.Default.Password
+                Usr = string.IsNullOrWhiteSpace(SettingsConnection.Default.User)? null: SettingsConnection.Default.User,
+                Pwd = string.IsNullOrWhiteSpace(SettingsConnection.Default.Password)? null: SettingsConnection.Default.Password
             };
 
         public static WebServiceConnectionStringBuilder WebServiceConnectionStringBuilder =>
@@ -23,7 +23,7 @@ namespace Pike.ConnectionTest
                 Database = SettingsWebService.Default.Database,
                 ServiceFileName = SettingsWebService.Default.ServiceFileName,
                 UserName = SettingsWebService.Default.UserName,
-                Password = SettingsWebService.Default.Password
+                Password = string.IsNullOrWhiteSpace(SettingsWebService.Default.Password)? null: SettingsWebService.Default.Password
             };
     }
 }

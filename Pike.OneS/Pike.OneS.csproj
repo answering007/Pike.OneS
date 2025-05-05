@@ -106,20 +106,19 @@
     <None Include="Info\Excel %28Power Query%29\Odata интерфейс.xlsx" />
     <None Include="Info\Excel %28Power Query%29\Web-сервис через AdoNet.xlsx" />
     <None Include="Info\Excel %28Power Query%29\Web-сервис.xlsx" />
-    <None Include="Info\Pike.OneS.Test.zip" />
     <None Include="key.snk" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Info\Images\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Info\COM+.png" />
-    <None Include="Info\Pike.OneS.Logo.svg" />
+    <None Include="Pike.OneS.Logo.svg" />
     <None Include="Info\Power Query %28M%29 AdoDotNet examples.txt" />
     <None Include="Info\WebService\Web-сервис 1С.txt" />
     <None Include="Info\Вызов 32-битных COM-объектов на стороне 64-битного сервера.html" />
     <None Include="Info\!Ключевые этапы.txt" />
-    <None Include="Pike.OneS.Logo.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Pike.OneS.Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
