@@ -105,12 +105,16 @@ namespace Pike.ConnectionTest
                         Console.WriteLine("Command disposed");
                     }
                     Console.WriteLine("Connection disposed");
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("CONNECTION SUCCEEDED!");
+                    Console.ResetColor();
                     Console.WriteLine($"Total time = {sw.Elapsed}");
                 }
                 catch (Exception exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(exception);
+                    Console.ResetColor();
                 }
             }
         }
@@ -126,7 +130,9 @@ namespace Pike.ConnectionTest
                 var serviceRequest = new WebServiceRequest(ConnectionStringBuilder.WebServiceConnectionStringBuilder, BasicQuery);
                 serviceRequest.QueryData();
                 Console.WriteLine($"Number of rows = {serviceRequest.ResulTable.Rows.Count}");
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("CONNECTION SUCCEEDED!");
+                Console.ResetColor();
                 Console.WriteLine($"Total time = {sw.Elapsed}");
             }
             catch (Exception exception)
