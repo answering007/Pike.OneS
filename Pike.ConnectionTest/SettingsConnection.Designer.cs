@@ -23,39 +23,63 @@ namespace Pike.ConnectionTest {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("AccountingServer")]
         public string Database {
             get {
                 return ((string)(this["Database"]));
             }
+            set {
+                this["Database"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("192.168.189.129")]
         public string Server {
             get {
                 return ((string)(this["Server"]));
             }
+            set {
+                this["Server"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Абдулов (директор)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Integration")]
         public string User {
             get {
                 return ((string)(this["User"]));
             }
+            set {
+                this["User"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("V83.ComConnector")]
         public string ProgId {
             get {
                 return ((string)(this["ProgId"]));
+            }
+            set {
+                this["ProgId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Integration123")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+            set {
+                this["Password"] = value;
             }
         }
     }

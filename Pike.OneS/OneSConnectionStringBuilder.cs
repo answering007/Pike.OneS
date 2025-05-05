@@ -31,12 +31,12 @@ namespace Pike.OneS
         /// </summary>
         public const string PasswordKey = "Pwd";
 
-        readonly string[] _keys = { FileKey, ServerKey, DatabaseKey, UserKey, PasswordKey };
+        static readonly string[] KeyConstants = { nameof(File), nameof(Srvr), nameof(Ref), nameof(Usr), nameof(Pwd) };
 
         /// <summary>
         /// Collection of keys
         /// </summary>
-        public override ICollection Keys => _keys;
+        public override ICollection Keys => KeyConstants;
 
         /// <summary>
         /// Get the value for the specific key
@@ -47,19 +47,16 @@ namespace Pike.OneS
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!_keys.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", _keys)}");
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 return base[keyword];
             }
             set
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!_keys.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", _keys)}");
-                if (value == null) throw new ArgumentNullException(nameof(value));
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 base[keyword] = value;
             }
         }
@@ -69,44 +66,44 @@ namespace Pike.OneS
         /// </summary>
         public string File
         {
-            get => this[FileKey] as string;
-            set => this[FileKey] = value;
+            get => this[nameof(File)] as string;
+            set => this[nameof(File)] = value;
         }
 
         /// <summary>
         /// Server name for client-server connection type
         /// </summary>
-        public string Server
+        public string Srvr
         {
-            get => this[ServerKey] as string;
-            set => this[ServerKey] = value;
+            get => this[nameof(Srvr)] as string;
+            set => this[nameof(Srvr)] = value;
         }
 
         /// <summary>
         /// Database name for client-server connection type
         /// </summary>
-        public string Database
+        public string Ref
         {
-            get => this[DatabaseKey] as string;
-            set => this[DatabaseKey] = value;
+            get => this[nameof(Ref)] as string;
+            set => this[nameof(Ref)] = value;
         }
 
         /// <summary>
         /// User name
         /// </summary>
-        public string User
+        public string Usr
         {
-            get => this[UserKey] as string;
-            set => this[UserKey] = value;
+            get => this[nameof(Usr)] as string;
+            set => this[nameof(Usr)] = value;
         }
 
         /// <summary>
         /// Password
         /// </summary>
-        public string Password
+        public string Pwd
         {
-            get => this[PasswordKey] as string;
-            set => this[PasswordKey] = value;
+            get => this[nameof(Pwd)] as string;
+            set => this[nameof(Pwd)] = value;
         }
     }
 }

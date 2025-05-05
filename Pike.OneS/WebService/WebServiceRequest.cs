@@ -63,14 +63,18 @@ namespace Pike.OneS.WebService
 
         WebRequest CreateRequest()
         {
-            var credentials = Base64Encode(string.Join(":", ConnectionStringBuilder.UserName, ConnectionStringBuilder.Password));
-
             var request = WebRequest.Create(ConnectionStringBuilder.WebServiceLink);
             request.Timeout = (int)Timeout.TotalMilliseconds;
             request.Method = "POST";
             request.ContentType = @"text/xml;charset=""utf-8""";
             request.ContentLength = Content.LongLength;
-            request.Headers["Authorization"] = $"Basic {credentials}";
+            if (ConnectionStringBuilder.ContainsKey("UserName"))
+            {
+                var credentials = Base64Encode(ConnectionStringBuilder.ContainsKey("Password")
+                    ? string.Join(":", ConnectionStringBuilder.UserName, ConnectionStringBuilder.Password)
+                    : ConnectionStringBuilder.UserName);
+                request.Headers["Authorization"] = $"Basic {credentials}";
+            }
             request.Headers["SOAPAction"] = ConnectionStringBuilder.SoapAction;
 
             return request;

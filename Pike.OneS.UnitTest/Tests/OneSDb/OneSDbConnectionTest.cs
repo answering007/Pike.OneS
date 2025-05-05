@@ -19,5 +19,37 @@ namespace Pike.OneS.UnitTest.Tests.OneSDb
             }
             Assert.IsTrue(dbConnection.State == ConnectionState.Closed);
         }
+
+        [TestMethod]
+        public void TestConnectionWithLoginOnly()
+        {
+            OneSDbConnection dbConnection;
+            using (dbConnection = new OneSDbConnection())
+            {
+                var builder = ConnectionStringBuilder.OneSDbConnectionStringBuilder;
+                builder.Usr = "LoginOnlyUser";
+                builder.Pwd = null;
+                dbConnection.ConnectionString = builder.ToString();
+                dbConnection.Open();
+                Assert.IsTrue(dbConnection.State == ConnectionState.Open);
+            }
+            Assert.IsTrue(dbConnection.State == ConnectionState.Closed);
+        }
+
+        [TestMethod]
+        public void TestConnectionWithWindowsUser()
+        {
+            OneSDbConnection dbConnection;
+            using (dbConnection = new OneSDbConnection())
+            {
+                var builder = ConnectionStringBuilder.OneSDbConnectionStringBuilder;
+                builder.Usr = null;
+                builder.Pwd = null;
+                dbConnection.ConnectionString = builder.ToString();
+                dbConnection.Open();
+                Assert.IsTrue(dbConnection.State == ConnectionState.Open);
+            }
+            Assert.IsTrue(dbConnection.State == ConnectionState.Closed);
+        }
     }
 }

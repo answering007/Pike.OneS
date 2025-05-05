@@ -1,23 +1,23 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pike.OneS.UnitTest" GeneratedClassName="SettingsWebService">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pike.ConnectionTest" GeneratedClassName="SettingsWebService">
   <Profiles />
   <Settings>
-    <Setting Name="UserName" Type="System.String" Scope="Application">
+    <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)">Integration</Value>
     </Setting>
-    <Setting Name="Password" Type="System.String" Scope="Application">
+    <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">Integration123</Value>
     </Setting>
-    <Setting Name="Address" Type="System.String" Scope="Application">
+    <Setting Name="Address" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://192.168.189.129</Value>
     </Setting>
-    <Setting Name="UriNamespace" Type="System.String" Scope="Application">
+    <Setting Name="UriNamespace" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://10.10.15.150/WebIntegration</Value>
     </Setting>
-    <Setting Name="Database" Type="System.String" Scope="Application">
+    <Setting Name="Database" Type="System.String" Scope="User">
       <Value Profile="(Default)">AccountingServer</Value>
     </Setting>
-    <Setting Name="ServiceFileName" Type="System.String" Scope="Application">
+    <Setting Name="ServiceFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">WebIntegration.1cws</Value>
     </Setting>
   </Settings>

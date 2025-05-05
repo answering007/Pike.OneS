@@ -1,18 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pike.OneS.UnitTest" GeneratedClassName="SettingsConnection">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pike.ConnectionTest" GeneratedClassName="SettingsConnection">
   <Profiles />
   <Settings>
-    <Setting Name="Database" Type="System.String" Scope="Application">
+    <Setting Name="Database" Type="System.String" Scope="User">
       <Value Profile="(Default)">AccountingServer</Value>
     </Setting>
-    <Setting Name="Server" Type="System.String" Scope="Application">
+    <Setting Name="Server" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.189.129</Value>
     </Setting>
-    <Setting Name="User" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Абдулов (директор)</Value>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Integration</Value>
     </Setting>
-    <Setting Name="ProgId" Type="System.String" Scope="Application">
+    <Setting Name="ProgId" Type="System.String" Scope="User">
       <Value Profile="(Default)">V83.ComConnector</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Integration123</Value>
     </Setting>
   </Settings>
 </SettingsFile>

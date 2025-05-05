@@ -9,10 +9,13 @@
       <Value Profile="(Default)">192.168.189.129</Value>
     </Setting>
     <Setting Name="User" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Абдулов (директор)</Value>
+      <Value Profile="(Default)">Integration</Value>
     </Setting>
     <Setting Name="ProgId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">V83.ComConnector</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Integration123</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -43,7 +43,7 @@ namespace Pike.OneS.UnitTest {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Абдулов (директор)")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Integration")]
         public string User {
             get {
                 return ((string)(this["User"]));
@@ -56,6 +56,15 @@ namespace Pike.OneS.UnitTest {
         public string ProgId {
             get {
                 return ((string)(this["ProgId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Integration123")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
             }
         }
     }

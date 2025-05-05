@@ -137,7 +137,9 @@ namespace Pike.ConnectionTest
             }
             catch (Exception exception)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(exception);
+                Console.ResetColor();
             }
         }
     }

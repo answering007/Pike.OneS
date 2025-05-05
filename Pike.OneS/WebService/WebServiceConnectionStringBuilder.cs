@@ -12,17 +12,13 @@ namespace Pike.OneS.WebService
     /// </summary>
     public class WebServiceConnectionStringBuilder : DbConnectionStringBuilder
     {
-        const string AddressKey = "Address";
-        const string UriNamespaceKey = "UriNamespace";
-        const string DatabaseKey = "Database";
-        const string ServiceFileNameKey = "ServiceFileName";
-        const string UserNameKey = "UserName";
-        const string PasswordKey = "Password";
-        const string TimeoutKey = "Timeout";
         const int DefaultTimeout = 60;
 
-        static readonly ReadOnlyCollection<string> KeyConstants = new ReadOnlyCollection<string>(new[]
-            {AddressKey, UriNamespaceKey, DatabaseKey, ServiceFileNameKey, UserNameKey, PasswordKey, TimeoutKey});
+        private static readonly ReadOnlyCollection<string> KeyConstants = new ReadOnlyCollection<string>(new[]
+        {
+            nameof(Address), nameof(UriNamespace), nameof(Database), nameof(ServiceFileName), nameof(UserName),
+            nameof(Password), nameof(Timeout)
+        });
 
         /// <inheritdoc />
         /// <summary>
@@ -40,7 +36,6 @@ namespace Pike.OneS.WebService
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
                 if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
                         $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
@@ -48,11 +43,10 @@ namespace Pike.OneS.WebService
             }
             set
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
                 if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
                         $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
-                base[keyword] = value ?? throw new ArgumentNullException(nameof(value));
+                base[keyword] = value;
             }
         }
 
@@ -61,8 +55,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string Address
         {
-            get => this[AddressKey] as string;
-            set => this[AddressKey] = value;
+            get => this[nameof(Address)] as string;
+            set => this[nameof(Address)] = value;
         }
 
         /// <summary>
@@ -70,8 +64,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string UriNamespace
         {
-            get => this[UriNamespaceKey] as string;
-            set => this[UriNamespaceKey] = value;
+            get => this[nameof(UriNamespace)] as string;
+            set => this[nameof(UriNamespace)] = value;
         }
 
         /// <summary>
@@ -79,8 +73,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string Database
         {
-            get => this[DatabaseKey] as string;
-            set => this[DatabaseKey] = value;
+            get => this[nameof(Database)] as string;
+            set => this[nameof(Database)] = value;
         }
 
         /// <summary>
@@ -88,8 +82,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string ServiceFileName
         {
-            get => this[ServiceFileNameKey] as string;
-            set => this[ServiceFileNameKey] = value;
+            get => this[nameof(ServiceFileName)] as string;
+            set => this[nameof(ServiceFileName)] = value;
         }
 
         /// <summary>
@@ -97,8 +91,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string UserName
         {
-            get => this[UserNameKey] as string;
-            set => this[UserNameKey] = value;
+            get => this[nameof(UserName)] as string;
+            set => this[nameof(UserName)] = value;
         }
 
         /// <summary>
@@ -106,8 +100,8 @@ namespace Pike.OneS.WebService
         /// </summary>
         public string Password
         {
-            get => this[PasswordKey] as string;
-            set => this[PasswordKey] = value;
+            get => this[nameof(Password)] as string;
+            set => this[nameof(Password)] = value;
         }
 
         /// <summary>
@@ -117,14 +111,14 @@ namespace Pike.OneS.WebService
         {
             get
             {
-                if (ContainsKey(TimeoutKey))
-                    return (int)this[TimeoutKey];
+                if (ContainsKey(nameof(Timeout)))
+                    return (int)this[nameof(Timeout)];
                 return DefaultTimeout;
             }
             set
             {
                 if (value <= 0) throw new ArgumentOutOfRangeException(nameof(value));
-                this[TimeoutKey] = value;
+                this[nameof(Timeout)] = value;
             }
         }
 
@@ -149,7 +143,7 @@ namespace Pike.OneS.WebService
                 if (kv == null) continue;
 
                 var value = kv.Substring(startToken.Length);
-                if (key == TimeoutKey)
+                if (key == nameof(Timeout))
                 {
                     if (!int.TryParse(value, out var timeout)) continue;
                     if (timeout <= 0) continue;

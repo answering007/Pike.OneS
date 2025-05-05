@@ -8,9 +8,20 @@ namespace Pike.OneS.UnitTest.Tests
     public class WebServiceTest
     {
         [TestMethod]
-        public void TestNativeWebService()
+        public void TestWebServiceWithLoginAndPassword()
         {
             var serviceRequest = new WebServiceRequest(ConnectionStringBuilder.WebServiceConnectionStringBuilder, TestHelper.BasicQuery);
+            serviceRequest.QueryData();
+            TestHelper.BasicCompare(serviceRequest.ResulTable);
+        }
+
+        [TestMethod]
+        public void TestWebServiceWithLoginOnly()
+        {
+            var builder = ConnectionStringBuilder.WebServiceConnectionStringBuilder;
+            builder.UserName = "LoginOnlyUser";
+            builder.Password = null;
+            var serviceRequest = new WebServiceRequest(builder, TestHelper.BasicQuery);
             serviceRequest.QueryData();
             TestHelper.BasicCompare(serviceRequest.ResulTable);
         }

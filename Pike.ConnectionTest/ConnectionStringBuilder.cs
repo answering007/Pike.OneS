@@ -9,9 +9,10 @@ namespace Pike.ConnectionTest
             new OneSDbConnectionStringBuilder
             {
                 ProgId = SettingsConnection.Default.ProgId,
-                Database = SettingsConnection.Default.Database,
-                Server = SettingsConnection.Default.Server,
-                User = SettingsConnection.Default.User
+                Ref = SettingsConnection.Default.Database,
+                Srvr = SettingsConnection.Default.Server,
+                Usr = SettingsConnection.Default.User,
+                Pwd = SettingsConnection.Default.Password
             };
 
         public static WebServiceConnectionStringBuilder WebServiceConnectionStringBuilder =>

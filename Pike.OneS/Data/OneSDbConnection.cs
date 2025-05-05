@@ -29,7 +29,7 @@ namespace Pike.OneS.Data
         /// <summary>
         /// Get the database name for client-server connection
         /// </summary>
-        public override string Database => string.IsNullOrWhiteSpace(_builder.Database)? string.Empty: _builder.Database;
+        public override string Database => string.IsNullOrWhiteSpace(_builder.Ref) ? string.Empty: _builder.Ref;
 
         /// <summary>
         /// Get the data source (server name for client-server connection; file path for file-server connection)
@@ -38,7 +38,7 @@ namespace Pike.OneS.Data
         {
             get
             {
-                if (!string.IsNullOrWhiteSpace(_builder.Server)) return _builder.Server;
+                if (!string.IsNullOrWhiteSpace(_builder.Srvr)) return _builder.Srvr;
                 return !string.IsNullOrWhiteSpace(_builder.File) ? _builder.File : string.Empty;
             }
         }

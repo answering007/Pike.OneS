@@ -7,12 +7,42 @@ namespace Pike.OneS.UnitTest.Tests.OneS
     public class OneSConnectorTest
     {
         [TestMethod]
-        public void ConnectionCanBeOpenedAndClosed()
+        public void TestConnectionWithLoginAndPassword()
         {
             OneSConnector dbConnection;
             using (dbConnection = new OneSConnector())
             {
                 dbConnection.Connect(ConnectionStringBuilder.OneSConnectionStringBuilder);
+                Assert.IsTrue(dbConnection.IsConnected);
+            }
+            Assert.IsFalse(dbConnection.IsConnected);
+        }
+
+        [TestMethod]
+        public void TestConnectionWithLoginOnly()
+        {
+            OneSConnector dbConnection;
+            using (dbConnection = new OneSConnector())
+            {
+                var builder = ConnectionStringBuilder.OneSConnectionStringBuilder;
+                builder.Usr = "LoginOnlyUser";
+                builder.Pwd = null;
+                dbConnection.Connect(builder);
+                Assert.IsTrue(dbConnection.IsConnected);
+            }
+            Assert.IsFalse(dbConnection.IsConnected);
+        }
+
+        [TestMethod]
+        public void TestConnectionWithWindowsUser()
+        {
+            OneSConnector dbConnection;
+            using (dbConnection = new OneSConnector())
+            {
+                var builder = ConnectionStringBuilder.OneSConnectionStringBuilder;
+                builder.Usr = null;
+                builder.Pwd = null;
+                dbConnection.Connect(builder);
                 Assert.IsTrue(dbConnection.IsConnected);
             }
             Assert.IsFalse(dbConnection.IsConnected);
