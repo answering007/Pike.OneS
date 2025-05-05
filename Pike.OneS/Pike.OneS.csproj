@@ -49,10 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -110,21 +108,22 @@
     <None Include="Info\Excel %28Power Query%29\Web-сервис.xlsx" />
     <None Include="Info\Pike.OneS.Test.zip" />
     <None Include="key.snk" />
-    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Info\COM+.png" />
-    <Content Include="Info\Pike.OneS.Logo.svg" />
-    <Content Include="Info\Power Query %28M%29 AdoDotNet examples.txt" />
-    <Content Include="Info\WebService\Web-сервис 1С.txt" />
-    <Content Include="Info\Вызов 32-битных COM-объектов на стороне 64-битного сервера.html" />
-    <Content Include="Info\!Ключевые этапы.txt" />
-    <Content Include="Pike.OneS.Logo.ico" />
+    <None Include="Info\COM+.png" />
+    <None Include="Info\Pike.OneS.Logo.svg" />
+    <None Include="Info\Power Query %28M%29 AdoDotNet examples.txt" />
+    <None Include="Info\WebService\Web-сервис 1С.txt" />
+    <None Include="Info\Вызов 32-битных COM-объектов на стороне 64-битного сервера.html" />
+    <None Include="Info\!Ключевые этапы.txt" />
+    <None Include="Pike.OneS.Logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Debug (
+    <PostBuildEvent>if $(ConfigurationName) == Release (
 cd $(TargetDir)
 del Pike.OneS.pdb )</PostBuildEvent>
   </PropertyGroup>

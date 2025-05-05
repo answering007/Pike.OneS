@@ -15,98 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0CECA266283C41AFB8210533BA4C2739"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_328F4659A80A418BBB3728E3F5B18AB9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3A34F1C64E404CD6BFB8FEB8E39BC767"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3EB3A705E6444C6EB26A98659164984A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4AD5724C54A241DFB23CD279D2CDD7D5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4FBBFE218D344F50BAF955413B14D33F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_601D8FF0AE13454D94F1B5DFC061B734"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_70C45A4B5A644B2BA4D391C754477721"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_742B07EE9BBA4DB6B1E5CAD45322496E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_86212BFF50AA4D64BEE52676641134D9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BCBC463CC5CB4A2187AACAF0F015DB7F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C92F8FA354DD4C3992E103DF66A49548"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D4CB797542584ED9965DCD78F41F7B7C"
+        "MsmKey" = "8:_43CEDE0D550C4889A1C9D74B29B22640"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0CECA266283C41AFB8210533BA4C2739"
+        "OwnerKey" = "8:_43CEDE0D550C4889A1C9D74B29B22640"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -136,10 +52,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.8"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    "Name" = "8:Microsoft .NET Framework 4.8 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.8"
                     }
                 }
             }
@@ -168,10 +84,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,KB2468871"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.8"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64) and Update for .NET Framework 4 (KB2468871)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.0,KB2468871"
+                    "Name" = "8:Microsoft .NET Framework 4.8 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.8"
                     }
                 }
             }
@@ -181,62 +97,6 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_76C753FC072C41D19D6926535120486F"
-            {
-            "Name" = "8:Primary output from Pike.OneS (Active)"
-            "Condition" = "8:"
-            "Object" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-            "FileType" = "3:1"
-            "InstallAction" = "3:4"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_CC987703_2626_452F_9E44_F7152F12BAEE"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_90C357CD34D441DCB73CBBA9F3CBBAE3"
-            {
-            "Name" = "8:Primary output from Pike.OneS (Active)"
-            "Condition" = "8:"
-            "Object" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-            "FileType" = "3:1"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_08D8522D_84FD_4201_B3C4_6E047642D79B"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_D8F56CF32A8C487C9A300F0F8231BA45"
-            {
-            "Name" = "8:Primary output from Pike.OneS (Active)"
-            "Condition" = "8:"
-            "Object" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-            "FileType" = "3:1"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_2580338A_16C4_4873_9429_8052C864EAA4"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_ECB345ECA95D419F81FC2530CF0C4488"
-            {
-            "Name" = "8:Primary output from Pike.OneS (Active)"
-            "Condition" = "8:"
-            "Object" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
-            "FileType" = "3:1"
-            "InstallAction" = "3:3"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_79065F20_0D40_4201_B472_E0F93A2B8CA0"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -252,254 +112,14 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.8"
                 "AllowLaterVersions" = "11:FALSE"
-                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
+                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=671728"
                 }
             }
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_328F4659A80A418BBB3728E3F5B18AB9"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\bin\\Release\\Pike.OneS.XML"
-            "TargetName" = "8:Pike.OneS.XML"
-            "Tag" = "8:"
-            "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3A34F1C64E404CD6BFB8FEB8E39BC767"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Excel (Power Query)\\Odata интерфейс.xlsx"
-            "TargetName" = "8:Odata интерфейс.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_7AD3A94D3DB24500943610F5CED3083C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3EB3A705E6444C6EB26A98659164984A"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Excel (Power Query)\\Web-сервис.xlsx"
-            "TargetName" = "8:Web-сервис.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_7AD3A94D3DB24500943610F5CED3083C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4AD5724C54A241DFB23CD279D2CDD7D5"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\!Ключевые этапы.txt"
-            "TargetName" = "8:!Ключевые этапы.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_375EF70FD2FD4DA79E37B2F42904E284"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FBBFE218D344F50BAF955413B14D33F"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Excel (Power Query)\\AdoNet.xlsx"
-            "TargetName" = "8:AdoNet.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_7AD3A94D3DB24500943610F5CED3083C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_601D8FF0AE13454D94F1B5DFC061B734"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Вызов 32-битных COM-объектов на стороне 64-битного сервера.html"
-            "TargetName" = "8:Вызов 32-битных COM-объектов на стороне 64-битного сервера.html"
-            "Tag" = "8:"
-            "Folder" = "8:_375EF70FD2FD4DA79E37B2F42904E284"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_70C45A4B5A644B2BA4D391C754477721"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Excel (Power Query)\\Web-сервис через AdoNet.xlsx"
-            "TargetName" = "8:Web-сервис через AdoNet.xlsx"
-            "Tag" = "8:"
-            "Folder" = "8:_7AD3A94D3DB24500943610F5CED3083C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_742B07EE9BBA4DB6B1E5CAD45322496E"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Power Query (M) AdoDotNet examples.txt"
-            "TargetName" = "8:Power Query (M) AdoDotNet examples.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_375EF70FD2FD4DA79E37B2F42904E284"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_86212BFF50AA4D64BEE52676641134D9"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\WebService\\ОбработкаWebIntegration.epf"
-            "TargetName" = "8:ОбработкаWebIntegration.epf"
-            "Tag" = "8:"
-            "Folder" = "8:_93B12B7A521944A99BE71ECAD2CBA23F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCBC463CC5CB4A2187AACAF0F015DB7F"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\COM+.png"
-            "TargetName" = "8:COM+.png"
-            "Tag" = "8:"
-            "Folder" = "8:_375EF70FD2FD4DA79E37B2F42904E284"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C92F8FA354DD4C3992E103DF66A49548"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\WebService\\Web-сервис 1С.txt"
-            "TargetName" = "8:Web-сервис 1С.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_93B12B7A521944A99BE71ECAD2CBA23F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D4CB797542584ED9965DCD78F41F7B7C"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\Info\\Pike.OneS.Test.zip"
-            "TargetName" = "8:Pike.OneS.Test.zip"
-            "Tag" = "8:"
-            "Folder" = "8:_375EF70FD2FD4DA79E37B2F42904E284"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -527,39 +147,6 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_375EF70FD2FD4DA79E37B2F42904E284"
-                    {
-                    "Name" = "8:Help"
-                    "AlwaysCreate" = "11:FALSE"
-                    "Condition" = "8:"
-                    "Transitive" = "11:FALSE"
-                    "Property" = "8:_E05391438D704AE4B09D36E93FA0DCC6"
-                        "Folders"
-                        {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_7AD3A94D3DB24500943610F5CED3083C"
-                            {
-                            "Name" = "8:Excel (Power Query)"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_9264A5FC30474CB9B704EF075298948F"
-                                "Folders"
-                                {
-                                }
-                            }
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_93B12B7A521944A99BE71ECAD2CBA23F"
-                            {
-                            "Name" = "8:WebService"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_F92B17BC7F2442B68567EF40398105D5"
-                                "Folders"
-                                {
-                                }
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -578,15 +165,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:1C .Net Data Provider"
-        "ProductCode" = "8:{A23F5183-3AD0-425C-9AFB-73F17D7E2E6D}"
-        "PackageCode" = "8:{EBD219FE-7E48-47CC-AF2E-75BBDC67B116}"
+        "ProductCode" = "8:{6B4926C1-3B96-48C3-AE05-0C040BF56E25}"
+        "PackageCode" = "8:{EEDA03C0-FCA3-4715-9925-14051598A69C}"
         "UpgradeCode" = "8:{6573DD5C-38C4-4FAA-9A88-D37DBD00257D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.4.1"
+        "ProductVersion" = "8:1.4.2"
         "Manufacturer" = "8:Pavel Kasatkin"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -596,7 +183,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:.Net Framework Data Provider for 1C 8.x"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_C7DC7E49A76741B498F3068D1DAD0A72"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1041,35 +628,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0CECA266283C41AFB8210533BA4C2739"
-            {
-            "SourcePath" = "8:..\\Pike.OneS\\obj\\Debug\\Pike.OneS.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_15C7B36F6D5C420A95E7A1D1F6345DB1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{FF062322-9E60-4260-B8DC-1365C2035F2A}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C7DC7E49A76741B498F3068D1DAD0A72"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_43CEDE0D550C4889A1C9D74B29B22640"
             {
             "SourcePath" = "8:..\\Pike.OneS\\obj\\Debug\\Pike.OneS.dll"
             "TargetName" = "8:"
