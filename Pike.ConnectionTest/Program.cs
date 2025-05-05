@@ -23,7 +23,12 @@ namespace Pike.ConnectionTest
                     '1',
                     new Tuple<DbConnectionStringBuilder, string>(ConnectionStringBuilder.WebServiceConnectionStringBuilder,
                         typeof(WebServiceDbProviderFactory).FullName)
-                }
+                },
+                {
+                    '2',
+                    new Tuple<DbConnectionStringBuilder, string>(ConnectionStringBuilder.WebServiceConnectionStringBuilder,
+                        "Web service")
+                },
             };
 
         const string Separator = "=======================";
@@ -43,7 +48,12 @@ namespace Pike.ConnectionTest
                 Console.WriteLine(Separator);
                 Console.WriteLine("Choose connection:");
                 foreach (var item in Builders)
-                    Console.WriteLine($"[{item.Key}]: for [{item.Value.Item1.GetType().Name}]");
+                {
+                    Console.WriteLine(item.Key == '2'
+                        ? $"[{item.Key}]: for [Web service]"
+                        : $"[{item.Key}]: for [{item.Value.Item1.GetType().Name}]");
+                }
+                    
 
                 var symbol = Console.ReadKey();
                 Console.WriteLine("");
@@ -58,6 +68,12 @@ namespace Pike.ConnectionTest
                 sw.Start();
                 try
                 {
+                    if (symbol.KeyChar == '2')
+                    {
+                        TestWebServiceConnection();
+                        continue;
+                    }
+                    
                     Console.WriteLine("Creating DbProviderFactory...");
                     var factory = DbProviderFactories.GetFactory(factoryName);
                     Console.WriteLine($"Factory created = {sw.Elapsed}");
@@ -96,6 +112,26 @@ namespace Pike.ConnectionTest
                 {
                     Console.WriteLine(exception);
                 }
+            }
+        }
+
+        static void TestWebServiceConnection()
+        {
+            try
+            {
+                Console.WriteLine("Executing web service request...");
+                var sw = new Stopwatch();
+                sw.Start();
+                
+                var serviceRequest = new WebServiceRequest(ConnectionStringBuilder.WebServiceConnectionStringBuilder, BasicQuery);
+                serviceRequest.QueryData();
+                Console.WriteLine($"Number of rows = {serviceRequest.ResulTable.Rows.Count}");
+                Console.WriteLine("CONNECTION SUCCEEDED!");
+                Console.WriteLine($"Total time = {sw.Elapsed}");
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
             }
         }
     }
