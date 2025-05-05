@@ -66,6 +66,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>SettingsWebService.settings</DependentUpon>
     </Compile>
+    <Compile Include="Tests\CodeExamples\CodeExampleTest.cs" />
     <Compile Include="Tests\DbProviderFactoryTest.cs" />
     <Compile Include="Tests\OneSDb\OneSDbConnectionTest.cs" />
     <Compile Include="Tests\OneSDb\OneSDbCommandTest.cs" />

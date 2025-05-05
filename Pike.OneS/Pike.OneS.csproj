@@ -108,17 +108,20 @@
     <None Include="Info\Excel %28Power Query%29\Web-сервис.xlsx" />
     <None Include="key.snk" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Info\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Info\COM+.png" />
     <None Include="Pike.OneS.Logo.svg" />
     <None Include="Info\Power Query %28M%29 AdoDotNet examples.txt" />
-    <None Include="Info\WebService\Web-сервис 1С.txt" />
     <None Include="Info\Вызов 32-битных COM-объектов на стороне 64-битного сервера.html" />
-    <None Include="Info\!Ключевые этапы.txt" />
     <None Include="Pike.OneS.Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Info\Images\WebService\Configuration.png" />
+    <Content Include="Info\Images\WebService\MethodProperties.png" />
+    <Content Include="Info\Images\WebService\Module.png" />
+    <Content Include="Info\Images\WebService\ParameterProperties.png" />
+    <Content Include="Info\Images\WebService\ServiceProperties.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
