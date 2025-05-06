@@ -59,9 +59,12 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Open()
         {
+            if (State == ConnectionState.Open) return;
+
             try
             {
                 _state = ConnectionState.Connecting;
+                CloseBaseConnector();
                 OneSConnector = new OneSConnector(_builder.ProgId);
                 OneSConnector.Connect(_builder.GetNativeBuilder());
                 _state = ConnectionState.Open;
@@ -71,7 +74,14 @@ namespace Pike.OneS.Data
                 _state = ConnectionState.Broken;
                 throw new Exception($"Unable to open connection to [{_builder}]", exception);                
             }
-            
+        }
+
+        void CloseBaseConnector()
+        {
+            if (OneSConnector == null) return;
+
+            OneSConnector.Dispose();
+            OneSConnector = null;
         }
 
         /// <summary>
@@ -79,10 +89,7 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Close()
         {
-            if (OneSConnector == null) return;
-
-            OneSConnector.Dispose();
-            OneSConnector = null;
+            CloseBaseConnector();
             _state = ConnectionState.Closed;
         }
 

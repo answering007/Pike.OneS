@@ -30,7 +30,8 @@ namespace Pike.OneS
         public void Connect(string connectionString)
         {
             if (string.IsNullOrWhiteSpace(connectionString)) throw new ArgumentException("connectionString can't be null or empty");
-            
+
+            base.Dispose();
             ComObject = _comConnector.Connect(connectionString);
         }
 
