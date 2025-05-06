@@ -15,6 +15,7 @@
       - [Установка Web service через конфигуратор 1С](#-web-service-1)
       - [Использование Web service](#-web-service)
       - [Использование ADO.NET провайдера на основе Web service](#-ado.net-web-service)
+  - [Проверка подключения](#-)
   - [License](#license)
 <!--/TOC-->
 ## Обзор
@@ -298,6 +299,18 @@ public void WebServiceTest()
 - ```WebServiceConnectionStringBuilder```- для проектирования строки подключения
 - ```WebServiceConnection```- для создания подключения
 - ```WebServiceCommand```- для запроса данных
+
+## Проверка подключения
+Для проверки подключения можно воспользоваться утилитой ```Pike.ConnectionTest.exe```
+В настройках утилиты присутствуют 2 секции параметров:
+- ```SettingsConnection```- настройки провайдера ADO.NET на основе 1С ComConnector
+- ```SettingsWebService```- настройки Web service и провайдера ADO.NET на основе Web service
+
+Настройки для тестирования необходимо установить до запуска приложения.
+При запуске приложения необходимо выбрать символ, который соответствует тестируемому подключению.
+В случае успешного подключеия будет выведено сообщение ```CONNECTION SUCCEEDED!```
+
+## Power Query
 
 ## License
 

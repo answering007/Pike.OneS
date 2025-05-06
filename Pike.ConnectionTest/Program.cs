@@ -38,7 +38,7 @@ namespace Pike.ConnectionTest
                 Console.WriteLine(Separator);
                 Console.WriteLine("Choose connection:");
                 foreach (var item in Connections.Values)
-                    Console.WriteLine($"[{item.Id}]: for {item.Name}");
+                    Console.WriteLine($"{item.Id}: {item.Name}");
 
 
                 var symbol = Console.ReadKey();
