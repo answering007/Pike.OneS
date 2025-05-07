@@ -24,7 +24,9 @@
 1. .NET провайдер на основе 1С ComConnector с использованием технологии позднего связывания (Late binding)
 2. ADO.NET провайдер на основе 1С ComConnector с использованием технологии позднего связывания (Late binding)
 3. Web service 1С
-4. ADO.NET провайдер на основе Web service
+4. ADO.NET провайдер на основе Web service.
+Данный провайдер сделан для ускорения преобразования xml-значений в таблицу в случае, если встроенные инструменты ETL не позволяют сделать это эффективно.
+Например, в Power Query ответ Web service быстрее обработать через ADO.NET в случае запроса большого набора данных.
 
 Реализована поддержка только примитивных типов в запросе и результате:
 - boolean
@@ -294,7 +296,7 @@ public void WebServiceTest()
 
 #### Использование ADO.NET провайдера на основе Web service
 
-Использование провайдера аналогично использованию __ADO.NET провайдера на основе ComConnector__:
+Использование провайдера аналогично использованию ADO.NET провайдера на основе ComConnector:
 
 - ```WebServiceConnectionStringBuilder```- для проектирования строки подключения
 - ```WebServiceConnection```- для создания подключения
@@ -310,8 +312,22 @@ public void WebServiceTest()
 При запуске приложения необходимо выбрать символ, который соответствует тестируемому подключению.
 В случае успешного подключеия будет выведено сообщение ```CONNECTION SUCCEEDED!```
 
-## Power Query
+## Power Query и другие ETL инструменты
+[Power Query](https://learn.microsoft.com/en-us/powerquery-m/) и другие средства интеграции, поддерживающие работу с ADO.NET могут быть использованы для получения данных:
+```fsharp
+let
+    query = AdoDotNet.Query(
+        "Pike.OneS.WebService.WebServiceDbProviderFactory", 
+        "Address=http://192.168.189.129;UriNamespace=http://10.10.15.150/WebIntegration;Database=AccountingServer;ServiceFileName=WebIntegration.1cws;UserName=Integration",
+        "ВЫБРАТЬ 1 КАК Номер, ДАТАВРЕМЯ(2018, 03, 15, 0, 0, 0) КАК Дата, ""Привет"" КАК Строка, ИСТИНА КАК Флаг")
+in
+    query
+```
+В папке проекта [Excel](Pike.OneS/Info/Excel) отражены примеры на Power Query для получения данных через:
+- ADO.NET ComConnector
+- Web service
+- ADO.NET Web service
 
-## License
-
-`messageserver` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+## Дополнительные материалы
+- [Создать оболочку COM+ для 1С (Платформа 1С x64)](https://saby.ru/help/integration/1C_set/64bit)
+- [Настройка веб сервера Apache + 1С (Пошаговое руководство)](https://infostart.ru/1c/articles/646384/)
