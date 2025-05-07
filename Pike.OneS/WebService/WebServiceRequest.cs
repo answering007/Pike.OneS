@@ -133,8 +133,9 @@ namespace Pike.OneS.WebService
                         !n.Value.Equals("Null", StringComparison.InvariantCultureIgnoreCase));
                 if (string.IsNullOrWhiteSpace(valueType?.Value)) continue;
 
-                var stringType = valueType.Value.Replace("xs:", string.Empty).Trim().ToLowerInvariant();
-                if (!KnownTypes.Values.ContainsKey(stringType)) continue;
+                var stringType = valueType.Value.ToLowerInvariant().Replace("xs:", string.Empty).Trim();
+                if (!KnownTypes.Values.ContainsKey(stringType))
+                    stringType = KnownTypes.StringType;
 
                 //Create column only if it has a primitive data type
                 var dataColumn = new DataColumn(columnName.Value)

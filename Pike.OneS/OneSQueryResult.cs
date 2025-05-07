@@ -54,26 +54,29 @@ namespace Pike.OneS
                     continue;
                 }
 
-                var elementValue = element.Value;
-                if (string.IsNullOrWhiteSpace(elementValue))
-                {
-                    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                    continue;
-                }
+                //var elementValue = element.Value;
+                //if (string.IsNullOrWhiteSpace(elementValue))
+                //{
+                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
+                //    continue;
+                //}
 
-                var values = elementValue.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                if (values.Length != 2)
-                {
-                    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                    continue;
-                }
+                //var values = elementValue.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                //if (values.Length != 2)
+                //{
+                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
+                //    continue;
+                //}
 
-                var stringTypeName = values[1].ToLowerInvariant();
+                //var stringTypeName = values[1].ToLowerInvariant();
+                var stringTypeName = element.Value.ToLowerInvariant().Replace("xs:", string.Empty).Trim();
+                //if (!KnownTypes.Values.ContainsKey(stringTypeName))
+                //{
+                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
+                //    continue;
+                //}
                 if (!KnownTypes.Values.ContainsKey(stringTypeName))
-                {
-                    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                    continue;
-                }
+                    stringTypeName = KnownTypes.StringType;
                 columns[i] = new OneSQueryResultColumn(columnName, KnownTypes.Values[stringTypeName]) { InternalIndex = i };
 
                 //Release com objects

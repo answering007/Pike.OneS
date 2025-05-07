@@ -9,6 +9,8 @@ namespace Pike.OneS
     /// </summary>
     public class KnownTypes: IEnumerable<KeyValuePair<string, Type>>
     {
+        public const string StringType = "string";
+
         static KnownTypes _values;
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace Pike.OneS
         {
             _dictionary = new Dictionary<string, Type>
             {
-                {"string", typeof (string)},
+                {StringType, typeof (string)},
                 {"datetime", typeof (DateTime)},
                 {"decimal", typeof (decimal)},
                 {"boolean", typeof (bool)},
