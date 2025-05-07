@@ -15,30 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_2BE69562F95CC96D0AEAAA2F646BB4AF"
-        "OwnerKey" = "8:_83A00C088DE244D19E86847E02642607"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2BE69562F95CC96D0AEAAA2F646BB4AF"
-        "OwnerKey" = "8:_982DB7C83C53489A9F3316EA3E83F65C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2BE69562F95CC96D0AEAAA2F646BB4AF"
-        "OwnerKey" = "8:_91E73FF9183B44658E0E94BA132FBAA2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2BE69562F95CC96D0AEAAA2F646BB4AF"
-        "OwnerKey" = "8:_F6A4B5D1ED025A565A6FF64A5C10A9E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_6F3DA2C992204B02B612162AA8E0C7AF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -101,12 +77,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F6A4B5D1ED025A565A6FF64A5C10A9E8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2BE69562F95CC96D0AEAAA2F646BB4AF"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -260,32 +230,6 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2BE69562F95CC96D0AEAAA2F646BB4AF"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:log4net, Version=3.0.4.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:log4net.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F6A4B5D1ED025A565A6FF64A5C10A9E8"
             {
             "AssemblyRegister" = "3:1"
@@ -363,7 +307,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:1C .Net Data Provider"
         "ProductCode" = "8:{6B4926C1-3B96-48C3-AE05-0C040BF56E25}"
-        "PackageCode" = "8:{8F0ABEEE-C231-4112-864D-93CDD5A1A7FC}"
+        "PackageCode" = "8:{DF12EC51-6734-44DF-912F-79C9304192D6}"
         "UpgradeCode" = "8:{6573DD5C-38C4-4FAA-9A88-D37DBD00257D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -825,9 +769,37 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6F3DA2C992204B02B612162AA8E0C7AF"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_16C59F5B6C704E2DADE8872250907172"
             {
             "SourcePath" = "8:"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:ContentFiles"
+            "OutputProjectGuid" = "8:{FF062322-9E60-4260-B8DC-1365C2035F2A}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6F3DA2C992204B02B612162AA8E0C7AF"
+            {
+            "SourcePath" = "8:..\\Pike.OneS\\bin\\Release\\Pike.OneS.XML"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
@@ -855,7 +827,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_83A00C088DE244D19E86847E02642607"
             {
-            "SourcePath" = "8:..\\Pike.ConnectionTest\\obj\\Debug\\Pike.ConnectionTest.exe"
+            "SourcePath" = "8:..\\Pike.ConnectionTest\\obj\\Release\\Pike.ConnectionTest.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
@@ -883,7 +855,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_91E73FF9183B44658E0E94BA132FBAA2"
             {
-            "SourcePath" = "8:..\\Pike.OneS\\obj\\Debug\\Pike.OneS.dll"
+            "SourcePath" = "8:..\\Pike.OneS\\obj\\Release\\Pike.OneS.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
@@ -911,7 +883,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_982DB7C83C53489A9F3316EA3E83F65C"
             {
-            "SourcePath" = "8:..\\Pike.OneS\\obj\\Debug\\Pike.OneS.dll"
+            "SourcePath" = "8:..\\Pike.OneS\\obj\\Release\\Pike.OneS.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_15C7B36F6D5C420A95E7A1D1F6345DB1"

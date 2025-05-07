@@ -102,10 +102,11 @@
     <Compile Include="WebService\WebServiceRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Info\Excel\01 ADO.NET ComConnector.xlsx" />
-    <None Include="Info\Excel\03 ADO.NET Web service.xlsx" />
-    <None Include="Info\Excel\02 Web service.xlsx" />
+    <Content Include="Info\Excel\01 ADO.NET ComConnector.xlsx" />
+    <Content Include="Info\Excel\03 ADO.NET Web service.xlsx" />
+    <Content Include="Info\Excel\02 Web service.xlsx" />
     <None Include="Info\InstallWebService.md" />
+    <Content Include="Info\КонсольЗапросовУниверсальная.epf" />
     <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup />
@@ -114,11 +115,11 @@
     <None Include="Pike.OneS.Logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Info\Images\Configuration.png" />
-    <Content Include="Info\Images\MethodProperties.png" />
-    <Content Include="Info\Images\Module.png" />
-    <Content Include="Info\Images\ParameterProperties.png" />
-    <Content Include="Info\Images\ServiceProperties.png" />
+    <None Include="Info\Images\Configuration.png" />
+    <None Include="Info\Images\MethodProperties.png" />
+    <None Include="Info\Images\Module.png" />
+    <None Include="Info\Images\ParameterProperties.png" />
+    <None Include="Info\Images\ServiceProperties.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
