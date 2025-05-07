@@ -9,25 +9,6 @@ namespace Pike.OneS.UnitTest.Tests.OneS
     public class OneSQueryTest
     {
         [TestMethod]
-        public void TestOneSQueryResultToDataTable()
-        {
-            using (var dbConnection = new OneSConnector())
-            {
-                dbConnection.Connect(ConnectionStringBuilder.OneSConnectionStringBuilder);
-                using (var dbCommand = new OneSQuery(dbConnection))
-                {
-                    dbCommand.Text = TestHelper.BasicQuery;
-
-                    using (var queryResult = dbCommand.Execute())
-                    {
-                        var tbl = queryResult.ToDataTable();
-                        TestHelper.BasicCompare(tbl);
-                    }
-                }
-            }
-        }
-
-        [TestMethod]
         public void TestOneSQueryResultDeserializeFromValueTable()
         {
             using (var dbConnection = new OneSConnector())
@@ -60,8 +41,7 @@ namespace Pike.OneS.UnitTest.Tests.OneS
             foreach (var row in rows)
                 context.WriteLine(string.Join("\t\t", row.ItemArray));
         }
-
-
+        
         [TestMethod]
         public void Test()
         {
@@ -81,32 +61,6 @@ namespace Pike.OneS.UnitTest.Tests.OneS
                     using (var queryResult = dbCommand.Execute())
                     {
                         var tbl = queryResult.DeserializeFromValueTable();
-                        PrintDataTable(tbl, TestContext);
-                        Assert.IsNotNull(tbl);
-                    }
-                }
-            }
-        }
-
-        [TestMethod]
-        public void Test2()
-        {
-            using (var dbConnection = new OneSConnector())
-            {
-                dbConnection.Connect(ConnectionStringBuilder.OneSConnectionStringBuilder);
-                using (var dbCommand = new OneSQuery(dbConnection))
-                {
-                    var query = @"ВЫБРАТЬ ПЕРВЫЕ 10
-	Банки.Ссылка,
-	Банки.Код,
-	Банки.Наименование
-ИЗ
-	Справочник.Банки КАК Банки";
-                    dbCommand.Text = query;
-
-                    using (var queryResult = dbCommand.Execute())
-                    {
-                        var tbl = queryResult.ToDataTable();
                         PrintDataTable(tbl, TestContext);
                         Assert.IsNotNull(tbl);
                     }

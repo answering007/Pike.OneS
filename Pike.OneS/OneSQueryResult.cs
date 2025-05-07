@@ -54,27 +54,7 @@ namespace Pike.OneS
                     continue;
                 }
 
-                //var elementValue = element.Value;
-                //if (string.IsNullOrWhiteSpace(elementValue))
-                //{
-                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                //    continue;
-                //}
-
-                //var values = elementValue.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                //if (values.Length != 2)
-                //{
-                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                //    continue;
-                //}
-
-                //var stringTypeName = values[1].ToLowerInvariant();
                 var stringTypeName = element.Value.ToLowerInvariant().Replace("xs:", string.Empty).Trim();
-                //if (!KnownTypes.Values.ContainsKey(stringTypeName))
-                //{
-                //    columns[i] = OneSQueryResultColumn.Unknown(columnName, i);
-                //    continue;
-                //}
                 if (!KnownTypes.Values.ContainsKey(stringTypeName))
                     stringTypeName = KnownTypes.StringType;
                 columns[i] = new OneSQueryResultColumn(columnName, KnownTypes.Values[stringTypeName]) { InternalIndex = i };
@@ -93,77 +73,6 @@ namespace Pike.OneS
         /// Collection of query result columns
         /// </summary>
         public OneSQueryResultColumnsCollection Columns { get; private set; }
-
-        /// <summary>
-        /// True if query is empty; otherwise false
-        /// </summary>
-        public bool IsEmpty => ComObject.IsEmpty;
-
-        /// <summary>
-        /// Iterate through each row in the query result and store object of the current row in the array
-        /// </summary>
-        /// <param name="action">Action to transform each row (array of objects)</param>
-        public void Select(Action<OneSQueryResultValue[]> action)
-        {
-            if (action == null) throw new ArgumentNullException(nameof(action));
-
-            Select(r =>
-            {
-                action(r);
-                return true;
-            });
-        }
-
-        /// <summary>
-        /// Iterate through each row in the query result and store object of the current row in the array.
-        /// Return true to keep iteration; otherwise false
-        /// </summary>
-        public void Select(Func<OneSQueryResultValue[], bool> function)
-        {
-            if (function == null) throw new ArgumentNullException(nameof(function));
-
-            var results = Columns.Select(cl => new OneSQueryResultValue { Column = cl }).ToArray();
-            using (var queryResultSelection = new OneSQueryResultSelection(this))
-            {
-                while (queryResultSelection.MoveNext())
-                {
-                    foreach (var result in results)
-                        result.Value = queryResultSelection[result.Column.InternalIndex];
-                    var keepIteration = function(results);
-                    if (!keepIteration) break;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Convert query result to the <see cref="DataTable"/>
-        /// </summary>
-        /// <returns>Table with query result</returns>
-        public DataTable ToDataTable()
-        {
-            var dataTable = new DataTable("Result");
-            foreach (var column in Columns)
-            {
-                var name = column.Name;
-                var dataColumn = new DataColumn(name)
-                {
-                    Caption = name,
-                    DataType = column.ManagedType,
-                    AllowDBNull = true
-                };
-                dataTable.Columns.Add(dataColumn);
-            }
-
-            Select(values =>
-            {
-                var dataRow = dataTable.NewRow();
-                foreach (var resultValue in values)
-                    dataRow[resultValue.Column.Name] = resultValue.Value ?? DBNull.Value;
-                dataTable.Rows.Add(dataRow);
-            });
-
-            return dataTable;
-        }
 
         /// <summary>
         /// Creates a value table and copies all the entries
