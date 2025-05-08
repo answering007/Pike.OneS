@@ -46,11 +46,6 @@ namespace Pike.OneS
         }
 
         /// <summary>
-        /// Get record count from query result
-        /// </summary>
-        public int Count => ComObject.Count();
-
-        /// <summary>
         /// Get the array of values from the current row
         /// </summary>
         public object[] CurrentRow

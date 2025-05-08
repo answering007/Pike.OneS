@@ -60,7 +60,6 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Cancel()
         {
-            throw new NotImplementedException();
         }
 
         DataTable GetQueryResultTable(OneSQueryResult queryResult)
@@ -74,31 +73,15 @@ namespace Pike.OneS.Data
         /// <returns>The number of rows affected</returns>
         public override int ExecuteNonQuery()
         {
-            if (DbConnection == null) throw new InvalidOperationException("DbConnection can't be null");
-            var connection = (OneSDbConnection)DbConnection;
-            if (connection.State != ConnectionState.Open) throw new InvalidOperationException("Connection must be open");
-
-            /*
-            * ExecuteNonQuery is intended for commands that do
-            * not return results, instead returning only the number
-            * of records affected.
-            */
-
-            int rst;
-            using (var query = new OneSQuery(connection.OneSConnector))
+            using (var reader = ExecuteReader())
             {
-                query.Text = CommandText;
-                var parameters = (OneSDbParameterCollection)DbParameterCollection;
-                foreach (var p in parameters.Values)
-                    query.SetParameter(p.ParameterName, p.Value);
-                using (var queryResult = query.Execute())
-                {
-                    var table = GetQueryResultTable(queryResult);
-                    rst = table.Rows.Count;
-                }
-            }
+                if (!reader.HasRows) return 0;
 
-            return rst;
+                var count = 0;
+                while (reader.Read())
+                    count++;
+                return count;
+            }
         }
 
         /// <summary>
@@ -107,33 +90,13 @@ namespace Pike.OneS.Data
         /// <returns>The first column of the first row in the result set</returns>
         public override object ExecuteScalar()
         {
-            if (DbConnection == null) throw new InvalidOperationException("DbConnection can't be null");
-            var connection = (OneSDbConnection)DbConnection;
-            if (connection.State != ConnectionState.Open) throw new InvalidOperationException("Connection must be open");
-
-            /*
-            * ExecuteScalar assumes that the command will return a single
-            * row with a single column, or if more rows/columns are returned
-            * it will return the first column of the first row.
-            */
-
-            object rst = null;
-            using (var query = new OneSQuery(connection.OneSConnector))
+            using (var reader = ExecuteReader())
             {
-                query.Text = CommandText;
-                var parameters = (OneSDbParameterCollection)DbParameterCollection;
-                foreach (var p in parameters.Values)
-                    query.SetParameter(p.ParameterName, p.Value);
-                using (var queryResult = query.Execute())
-                {
-                    var table = GetQueryResultTable(queryResult);
-                    if (table.Columns.Count > 0 && table.Rows.Count > 0)
-                        rst = table.Rows[0][0];
-                }
-                    
-            }
+                if (!reader.HasRows) return null;
 
-            return rst?? DBNull.Value;
+                reader.Read();
+                return reader[0];
+            }
         }
 
         /// <summary>

@@ -90,8 +90,8 @@ namespace Pike.OneS
         /// <returns>Value</returns>
         public object this[int index]
         {
-            get { return ComObject.Get(index); }
-            set { ComObject.Set(index, value); }
+            get => ComObject.Get(index);
+            set => ComObject.Set(index, value);
         }
 
         /// <summary>

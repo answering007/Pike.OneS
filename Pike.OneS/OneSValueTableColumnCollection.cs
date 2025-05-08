@@ -21,7 +21,7 @@ namespace Pike.OneS
         }
 
         /// <summary>
-        /// Get the value by it's index
+        /// Get the value by its index
         /// </summary>
         /// <param name="index">Index of the value</param>
         /// <returns>Table row of type <see cref="OneSValueTableColumn"/></returns>

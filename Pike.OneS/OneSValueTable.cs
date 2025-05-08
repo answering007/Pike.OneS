@@ -37,7 +37,7 @@ namespace Pike.OneS
         }
 
         /// <summary>
-        /// Get the value by it's index
+        /// Get the value by its index
         /// </summary>
         /// <param name="index">Index of the value</param>
         /// <returns>Table row of type <see cref="OneSValueTableRow"/></returns>
@@ -47,11 +47,6 @@ namespace Pike.OneS
         /// Get th number of elements in the <see cref="OneSValueTable"/>
         /// </summary>
         public int Count => ComObject.Count();
-
-        /// <summary>
-        /// Get columns collection
-        /// </summary>
-        public OneSValueTableColumnCollection Columns => new OneSValueTableColumnCollection(ComObject.Columns);
 
         /// <summary>
         /// <see cref="IEnumerable{T}"/> implementation

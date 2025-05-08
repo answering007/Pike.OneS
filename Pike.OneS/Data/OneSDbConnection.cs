@@ -22,14 +22,14 @@ namespace Pike.OneS.Data
         /// </summary>
         public override string ConnectionString
         {
-            get { return _builder.ToString(); }
-            set { _builder = OneSDbConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value); }
+            get => _builder.ToString();
+            set => _builder = OneSDbConnectionStringBuilder.Parse(string.IsNullOrWhiteSpace(value) ? string.Empty : value);
         }
 
         /// <summary>
         /// Get the database name for client-server connection
         /// </summary>
-        public override string Database => string.IsNullOrWhiteSpace(_builder.Database)? string.Empty: _builder.Database;
+        public override string Database => string.IsNullOrWhiteSpace(_builder.Ref) ? string.Empty: _builder.Ref;
 
         /// <summary>
         /// Get the data source (server name for client-server connection; file path for file-server connection)
@@ -38,7 +38,7 @@ namespace Pike.OneS.Data
         {
             get
             {
-                if (!string.IsNullOrWhiteSpace(_builder.Server)) return _builder.Server;
+                if (!string.IsNullOrWhiteSpace(_builder.Srvr)) return _builder.Srvr;
                 return !string.IsNullOrWhiteSpace(_builder.File) ? _builder.File : string.Empty;
             }
         }
@@ -59,9 +59,12 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Open()
         {
+            if (State == ConnectionState.Open) return;
+
             try
             {
                 _state = ConnectionState.Connecting;
+                CloseBaseConnector();
                 OneSConnector = new OneSConnector(_builder.ProgId);
                 OneSConnector.Connect(_builder.GetNativeBuilder());
                 _state = ConnectionState.Open;
@@ -71,7 +74,14 @@ namespace Pike.OneS.Data
                 _state = ConnectionState.Broken;
                 throw new Exception($"Unable to open connection to [{_builder}]", exception);                
             }
-            
+        }
+
+        void CloseBaseConnector()
+        {
+            if (OneSConnector == null) return;
+
+            OneSConnector.Dispose();
+            OneSConnector = null;
         }
 
         /// <summary>
@@ -79,10 +89,7 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Close()
         {
-            if (OneSConnector == null) return;
-
-            OneSConnector.Dispose();
-            OneSConnector = null;
+            CloseBaseConnector();
             _state = ConnectionState.Closed;
         }
 
@@ -108,7 +115,7 @@ namespace Pike.OneS.Data
         #region No need to implement
 
         /// <summary>
-        /// Starts a database transaction. Currently throw <see cref="NotImplementedException"/>
+        /// Starts a database transaction. Currently, throw <see cref="NotImplementedException"/>
         /// </summary>
         /// <param name="isolationLevel">A <see cref="IsolationLevel"/> object</param>
         /// <returns></returns>
@@ -118,7 +125,7 @@ namespace Pike.OneS.Data
         }
 
         /// <summary>
-        /// Changes the current database for an open connection.  Currently throw <see cref="NotImplementedException"/>
+        /// Changes the current database for an open connection. Currently, throw <see cref="NotImplementedException"/>
         /// </summary>
         /// <param name="databaseName">Specifies the name of the database for the connection to use</param>
         public override void ChangeDatabase(string databaseName)

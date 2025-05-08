@@ -32,7 +32,7 @@ namespace Pike.OneS.Data
         /// </summary>
         public override string ParameterName
         {
-            get { return _parameterName; }
+            get => _parameterName;
             set
             {
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("value can't be null or empty");
@@ -68,12 +68,12 @@ namespace Pike.OneS.Data
         /// </summary>
         public override object Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
                 _value = value;
-                DbType = _value.ParseDbType();
-                Size = DbType.GetSize(_value);
+                DbType = ParseDbType(_value);
+                Size = GetSize(DbType, _value);
             }
         }
         /// <summary>
@@ -82,6 +82,67 @@ namespace Pike.OneS.Data
         public override void ResetDbType()
         {
             DbType = DbType.Object;
+        }
+
+        /// <summary>
+        /// Get size of the primitive type
+        /// </summary>
+        /// <param name="type">Primitive type supported by <see cref="OneSQueryResult"/></param>
+        /// <param name="value">Object for the <see cref="string"/> data type</param>
+        /// <returns>Size of the type</returns>
+        static int GetSize(DbType type, object value = null)
+        {
+            switch (type)
+            {
+                case DbType.String:
+                    return ((string) value)?.Length ?? 0;
+                case DbType.DateTime:
+                    return 8;
+                case DbType.Decimal:
+                    return sizeof(decimal);
+                case DbType.Boolean:
+                    return sizeof(bool);
+                case DbType.Int32:
+                    return sizeof(int);
+                default:
+                    throw new SystemException("Unknown data type");
+            }
+        }
+
+        /// <summary>
+        /// Parse <see cref="System.Data.DbType"/> from <see cref="TypeCode"/>
+        /// </summary>
+        /// <param name="typeCode">Source <see cref="TypeCode"/></param>
+        /// <returns>Associated <see cref="System.Data.DbType"/></returns>
+        static DbType ParseDbType(TypeCode typeCode)
+        {
+            switch (typeCode)
+            {                
+                case TypeCode.String:
+                    return DbType.String;
+                case TypeCode.DateTime:
+                    return DbType.DateTime;
+                case TypeCode.Decimal:
+                    return DbType.Decimal;
+                case TypeCode.Boolean:
+                    return DbType.Boolean;
+                case TypeCode.Int32:
+                    return DbType.Int32;
+                default:
+                    throw new SystemException("Value is of unknown data type");
+            }
+        }
+
+        /// <summary>
+        /// Get associated <see cref="System.Data.DbType"/> from the object
+        /// </summary>
+        /// <param name="obj">Source object</param>
+        /// <returns>Associated <see cref="System.Data.DbType"/></returns>
+        static DbType ParseDbType(object obj)
+        {
+            if (obj == null) throw new ArgumentNullException(nameof(obj));
+
+            return ParseDbType(Type.GetTypeCode(obj.GetType()));
         }
     }
 }

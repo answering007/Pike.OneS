@@ -63,20 +63,24 @@ namespace Pike.OneS.WebService
 
         WebRequest CreateRequest()
         {
-            var credentials = Base64Encode(string.Join(":", ConnectionStringBuilder.UserName, ConnectionStringBuilder.Password));
-
             var request = WebRequest.Create(ConnectionStringBuilder.WebServiceLink);
             request.Timeout = (int)Timeout.TotalMilliseconds;
             request.Method = "POST";
             request.ContentType = @"text/xml;charset=""utf-8""";
             request.ContentLength = Content.LongLength;
-            request.Headers["Authorization"] = $"Basic {credentials}";
+            if (ConnectionStringBuilder.ContainsKey("UserName"))
+            {
+                var credentials = Base64Encode(ConnectionStringBuilder.ContainsKey("Password")
+                    ? string.Join(":", ConnectionStringBuilder.UserName, ConnectionStringBuilder.Password)
+                    : ConnectionStringBuilder.UserName);
+                request.Headers["Authorization"] = $"Basic {credentials}";
+            }
             request.Headers["SOAPAction"] = ConnectionStringBuilder.SoapAction;
 
             return request;
         }
 
-        void FillResponce(WebRequest request)
+        void FillResponse(WebRequest request)
         {
             //Write content to then request stream
             using (var dataStream = request.GetRequestStream())
@@ -98,7 +102,6 @@ namespace Pike.OneS.WebService
                         var returnNode = xmlResponse.Descendants().FirstOrDefault(n =>
                             n.Name.LocalName.Equals("return", StringComparison.InvariantCultureIgnoreCase));
                         if (returnNode == null) throw new InvalidOperationException("Response return node is null");
-                        //_valueTable = XDocument.Parse(xmlResponse.Root.Value);
                         _valueTable = XDocument.Parse(returnNode.Value);
                     }
                 }
@@ -116,7 +119,7 @@ namespace Pike.OneS.WebService
             var rawColumns = new DataColumn[columns.Length];
             for (var i = 0; i < columns.Length; i++)
             {
-                //Get columns data and ignore non-primitive data types
+                //Get columns data
                 var column = columns[i];
                 var columnName = column.FirstNode as XElement;
                 if (columnName == null) continue;
@@ -130,10 +133,11 @@ namespace Pike.OneS.WebService
                         !n.Value.Equals("Null", StringComparison.InvariantCultureIgnoreCase));
                 if (string.IsNullOrWhiteSpace(valueType?.Value)) continue;
 
-                var stringType = valueType.Value.Replace("xs:", string.Empty).Trim().ToLowerInvariant();
-                if (!KnownTypes.Values.ContainsKey(stringType)) continue;
+                var stringType = valueType.Value.ToLowerInvariant().Replace("xs:", string.Empty).Trim();
+                if (!KnownTypes.Values.ContainsKey(stringType))
+                    stringType = KnownTypes.StringType;
 
-                //Create column only if it has a primitive data type
+                //Create column
                 var dataColumn = new DataColumn(columnName.Value)
                 {
                     Caption = columnName.Value,
@@ -204,10 +208,9 @@ namespace Pike.OneS.WebService
         /// <param name="query">Query to execute</param>
         public WebServiceRequest(WebServiceConnectionStringBuilder builder, string query)
         {
-            if (builder == null) throw new ArgumentNullException(nameof(builder));
             if (string.IsNullOrWhiteSpace(query)) throw new ArgumentException("query can't be null or empty");
 
-            ConnectionStringBuilder = builder;
+            ConnectionStringBuilder = builder ?? throw new ArgumentNullException(nameof(builder));
             Query = query;
 
             var content = string.Format(ContentPattern, ConnectionStringBuilder.UriNamespace, Query);
@@ -220,7 +223,7 @@ namespace Pike.OneS.WebService
         public void QueryData()
         {
             var request = CreateRequest();
-            FillResponce(request);
+            FillResponse(request);
             var rawColumns = ParseRawColumns();
             ResetTable(rawColumns);
             FillDataTable(rawColumns);

@@ -10,19 +10,13 @@ namespace Pike.OneS.Data
     /// </summary>
     public class OneSDbConnectionStringBuilder: DbConnectionStringBuilder
     {
-        const string ProgIdKey = "ProgId";
-        const string FileKey = OneSConnectionStringBuilder.FileKey;
-        const string ServerKey = OneSConnectionStringBuilder.ServerKey;
-        const string DatabaseKey = OneSConnectionStringBuilder.DatabaseKey;
-        const string UserKey = OneSConnectionStringBuilder.UserKey;
-        const string PasswordKey = OneSConnectionStringBuilder.PasswordKey;
-
-        static readonly string[] KeyConstans = { ProgIdKey, FileKey, ServerKey, DatabaseKey, UserKey, PasswordKey };
+        static readonly string[] KeyConstants =
+            { nameof(ProgId), nameof(File), nameof(Srvr), nameof(Ref), nameof(Usr), nameof(Pwd) };
 
         /// <summary>
         /// Collection of keys
         /// </summary>
-        public override ICollection Keys => KeyConstans;
+        public override ICollection Keys => KeyConstants;
 
         /// <summary>
         /// Get the value for the specific key
@@ -33,19 +27,16 @@ namespace Pike.OneS.Data
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!KeyConstans.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstans)}");
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 return base[keyword];
             }
             set
             {
-                if (string.IsNullOrWhiteSpace(keyword)) throw new ArgumentException("keyword can't be null or empty");
-                if (!KeyConstans.Contains(keyword))
+                if (!KeyConstants.Contains(keyword))
                     throw new ArgumentException(
-                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstans)}");
-                if (value == null) throw new ArgumentNullException(nameof(value));
+                        $"Given keyword is not supported. Supported keyword are: {string.Join(",", KeyConstants)}");
                 base[keyword] = value;
             }
         }
@@ -55,8 +46,8 @@ namespace Pike.OneS.Data
         /// </summary>
         public string ProgId
         {
-            get { return this[ProgIdKey] as string; }
-            set { this[ProgIdKey] = value; }
+            get => this[nameof(ProgId)] as string;
+            set => this[nameof(ProgId)] = value;
         }
 
         /// <summary>
@@ -64,44 +55,44 @@ namespace Pike.OneS.Data
         /// </summary>
         public string File
         {
-            get { return this[FileKey] as string; }
-            set { this[FileKey] = value; }
+            get => this[nameof(File)] as string;
+            set => this[nameof(File)] = value;
         }
 
         /// <summary>
         /// Server name for client-server connection type
         /// </summary>
-        public string Server
+        public string Srvr
         {
-            get { return this[ServerKey] as string; }
-            set { this[ServerKey] = value; }
+            get => this[nameof(Srvr)] as string;
+            set => this[nameof(Srvr)] = value;
         }
 
         /// <summary>
         /// Database name for client-server connection type
         /// </summary>
-        public string Database
+        public string Ref
         {
-            get { return this[DatabaseKey] as string; }
-            set { this[DatabaseKey] = value; }
+            get => this[nameof(Ref)] as string;
+            set => this[nameof(Ref)] = value;
         }
 
         /// <summary>
         /// User name
         /// </summary>
-        public string User
+        public string Usr
         {
-            get { return this[UserKey] as string; }
-            set { this[UserKey] = value; }
+            get => this[nameof(Usr)] as string;
+            set => this[nameof(Usr)] = value;
         }
 
         /// <summary>
         /// Password
         /// </summary>
-        public string Password
+        public string Pwd
         {
-            get { return this[PasswordKey] as string; }
-            set { this[PasswordKey] = value; }
+            get => this[nameof(Pwd)] as string;
+            set => this[nameof(Pwd)] = value;
         }
 
         /// <summary>
@@ -115,7 +106,7 @@ namespace Pike.OneS.Data
 
             var rst = new OneSDbConnectionStringBuilder();
             var values = connectionString.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var key in KeyConstans)
+            foreach (var key in KeyConstants)
             {
                 var startToken = key + "=";
                 var kv = values.FirstOrDefault(v => v.StartsWith(startToken, StringComparison.InvariantCultureIgnoreCase));
@@ -138,7 +129,7 @@ namespace Pike.OneS.Data
         {
             var rst = new OneSConnectionStringBuilder();
 
-            var keys = KeyConstans.Where(k => !k.Equals(ProgIdKey, StringComparison.InvariantCultureIgnoreCase)).ToArray();
+            var keys = KeyConstants.Where(k => !k.Equals(nameof(ProgId), StringComparison.InvariantCultureIgnoreCase)).ToArray();
             foreach (var key in keys)
             {
                 if (!ContainsKey(key)) continue;
