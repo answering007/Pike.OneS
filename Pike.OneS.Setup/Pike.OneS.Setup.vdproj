@@ -267,6 +267,17 @@
         }
         "Folder"
         {
+            "{1525181F-901A-416C-8A58-119130FE478E}:_093B65F5902F42D293BED1084CA387CF"
+            {
+            "Name" = "8:#1916"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
             "{C7E34266-2C30-44B9-A9A3-4E394ABD6E18}:_15C7B36F6D5C420A95E7A1D1F6345DB1"
             {
             "Name" = "8:#1927"
@@ -307,7 +318,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:1C .Net Data Provider"
         "ProductCode" = "8:{6B4926C1-3B96-48C3-AE05-0C040BF56E25}"
-        "PackageCode" = "8:{06A55B52-9ADD-42CD-8804-9C6FF39DD182}"
+        "PackageCode" = "8:{655E112C-1166-4CAC-B56D-643BF821C474}"
         "UpgradeCode" = "8:{6573DD5C-38C4-4FAA-9A88-D37DBD00257D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -427,6 +438,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9C2BB8E903D4419DB8FB937B193AFFE7"
+            {
+            "Name" = "8:Test 1C Connection"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:32512"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_83A00C088DE244D19E86847E02642607"
+            "Folder" = "8:_093B65F5902F42D293BED1084CA387CF"
+            "WorkingFolder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
+            "Icon" = "8:_91E73FF9183B44658E0E94BA132FBAA2"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
