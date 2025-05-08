@@ -49,11 +49,6 @@ namespace Pike.OneS
         public int Count => ComObject.Count();
 
         /// <summary>
-        /// Get columns collection
-        /// </summary>
-        public OneSValueTableColumnCollection Columns => new OneSValueTableColumnCollection(ComObject.Columns);
-
-        /// <summary>
         /// <see cref="IEnumerable{T}"/> implementation
         /// </summary>
         /// <returns>Enumerator</returns>

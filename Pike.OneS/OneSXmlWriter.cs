@@ -22,26 +22,5 @@ namespace Pike.OneS
 
             ComObject = comOneSXmlWriter;
         }
-
-        /// <summary>
-        /// Initializes an object to output the resulting XML to a string
-        /// </summary>
-        public void SetString()
-        {
-            if (ComObject == null) throw new ObjectDisposedException("OneSXmlWriter");
-
-            ComObject.SetString();
-        }
-
-        /// <summary>
-        /// Finalize writing XML text
-        /// </summary>
-        /// <returns>XML as text</returns>
-        public string Close()
-        {
-            if (ComObject == null) throw new ObjectDisposedException("OneSXmlWriter");
-
-            return ComObject.Close();
-        }
     }
 }

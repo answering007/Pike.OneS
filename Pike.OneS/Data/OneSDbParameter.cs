@@ -32,7 +32,7 @@ namespace Pike.OneS.Data
         /// </summary>
         public override string ParameterName
         {
-            get { return _parameterName; }
+            get => _parameterName;
             set
             {
                 if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException("value can't be null or empty");

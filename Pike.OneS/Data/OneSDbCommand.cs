@@ -60,7 +60,6 @@ namespace Pike.OneS.Data
         /// </summary>
         public override void Cancel()
         {
-            
         }
 
         DataTable GetQueryResultTable(OneSQueryResult queryResult)

@@ -172,11 +172,6 @@ namespace Pike.OneS.WebService
         }
 
         /// <summary>
-        /// Get 1C web services description metadata
-        /// </summary>
-        public string WsdlLink => WebServiceLink == null? null: WebServiceLink + "?wsdl";
-
-        /// <summary>
         /// Get 1C web service SOAP action link
         /// </summary>
         public string SoapAction => UriNamespace == null? null: $"{UriNamespace}#WebIntegration:GetQueryResult";

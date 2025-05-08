@@ -119,7 +119,7 @@ namespace Pike.OneS.WebService
             var rawColumns = new DataColumn[columns.Length];
             for (var i = 0; i < columns.Length; i++)
             {
-                //Get columns data and ignore non-primitive data types
+                //Get columns data
                 var column = columns[i];
                 var columnName = column.FirstNode as XElement;
                 if (columnName == null) continue;
@@ -137,7 +137,7 @@ namespace Pike.OneS.WebService
                 if (!KnownTypes.Values.ContainsKey(stringType))
                     stringType = KnownTypes.StringType;
 
-                //Create column only if it has a primitive data type
+                //Create column
                 var dataColumn = new DataColumn(columnName.Value)
                 {
                     Caption = columnName.Value,

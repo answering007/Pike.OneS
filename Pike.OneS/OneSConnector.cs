@@ -52,23 +52,6 @@ namespace Pike.OneS
         public bool IsConnected => ComObject != null;
 
         /// <summary>
-        /// Set the maximum number of simultaneous objects of the external connection through the COM-connection manager.
-        /// The number of simultaneous connections include the number of connections in the external connections pool. The default value of 0 (not limited).
-        /// Sets a property only when the object was created in Multi-threaded Apartment (MTA)
-        /// </summary>
-        public int MaxConnections { set => _comConnector.MaxConnections = value; }
-
-        /// <summary>
-        /// Set the maximum number of connections with the information base which may simultaneously be in pool
-        /// </summary>
-        public int PoolCapacity { set => _comConnector.PoolCapacity = value; }
-
-        /// <summary>
-        /// Set the maximum time to stay connection unused. After this time the unused connection is released.
-        /// </summary>
-        public TimeSpan PoolTimeout { set => _comConnector.PoolTimeout = value.TotalSeconds; }
-
-        /// <summary>
         /// Implementation of <see cref="IDisposable"/> interface
         /// </summary>
         public override void Dispose()

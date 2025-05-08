@@ -9,6 +9,9 @@ namespace Pike.OneS
     /// </summary>
     public class KnownTypes: IEnumerable<KeyValuePair<string, Type>>
     {
+        /// <summary>
+        /// String type name
+        /// </summary>
         public const string StringType = "string";
 
         static KnownTypes _values;

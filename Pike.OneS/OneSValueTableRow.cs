@@ -49,11 +49,6 @@ namespace Pike.OneS
                     null, ComObject,
                     new[] {value} );
             }
-        } 
-
-        /// <summary>
-        /// Get <see cref="OneSValueTableRow"/> owner
-        /// </summary>
-        public OneSValueTable Owner => new OneSValueTable(ComObject.Owner());
+        }
     }
 }

@@ -19,15 +19,6 @@ namespace Pike.OneS
         }
 
         /// <summary>
-        /// Get or set column title
-        /// </summary>
-        public string Title
-        {
-            get => ComObject.Title;
-            set => ComObject.Title = value;
-        }
-
-        /// <summary>
         /// Get or set column name
         /// </summary>
         public string Name

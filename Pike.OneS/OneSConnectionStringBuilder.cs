@@ -10,27 +10,6 @@ namespace Pike.OneS
     /// </summary>
     public class OneSConnectionStringBuilder: DbConnectionStringBuilder
     {
-        /// <summary>
-        /// File key
-        /// </summary>
-        public const string FileKey = "File";
-        /// <summary>
-        /// Server key
-        /// </summary>
-        public const string ServerKey = "Srvr";
-        /// <summary>
-        /// Database key
-        /// </summary>
-        public const string DatabaseKey = "Ref";
-        /// <summary>
-        /// User key
-        /// </summary>
-        public const string UserKey = "Usr";
-        /// <summary>
-        /// Password key
-        /// </summary>
-        public const string PasswordKey = "Pwd";
-
         static readonly string[] KeyConstants = { nameof(File), nameof(Srvr), nameof(Ref), nameof(Usr), nameof(Pwd) };
 
         /// <summary>

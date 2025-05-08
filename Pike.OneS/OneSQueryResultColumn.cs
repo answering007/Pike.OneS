@@ -9,12 +9,12 @@ namespace Pike.OneS
         /// <summary>
         /// Column name
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Column managed type (string, DateTime, decimal or boolean)
         /// </summary>
-        public Type ManagedType { get; private set; }
+        public Type ManagedType { get; }
 
         /// <summary>
         /// True if <see cref="ManagedType"/> is defined; otherwise false
