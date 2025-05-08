@@ -289,6 +289,28 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_21B58590848F4A2490A7E0EB2E2C318B"
+            {
+            "Name" = "8:#1915"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:AppDataFolder"
+                "Folders"
+                {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_490F7AA809644BA49CAB9BAA9ABA3F57"
+                    {
+                    "Name" = "8:Pike.OneS"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_CC863B9B0FCB4F1F9C9B50519E262E28"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_6F13250BDC4D45A3A9A7AEF94F688C25"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
@@ -318,7 +340,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:1C .Net Data Provider"
         "ProductCode" = "8:{6B4926C1-3B96-48C3-AE05-0C040BF56E25}"
-        "PackageCode" = "8:{655E112C-1166-4CAC-B56D-643BF821C474}"
+        "PackageCode" = "8:{F12ABB1F-E8AB-4038-B0BF-12433AB734D2}"
         "UpgradeCode" = "8:{6573DD5C-38C4-4FAA-9A88-D37DBD00257D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -438,9 +460,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9C2BB8E903D4419DB8FB937B193AFFE7"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_23E7170CCB2B487088C3EF010C08D7D9"
             {
-            "Name" = "8:Test 1C Connection"
+            "Name" = "8:Test 1C Provider connection"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -448,7 +470,7 @@
             "Transitive" = "11:FALSE"
             "Target" = "8:_83A00C088DE244D19E86847E02642607"
             "Folder" = "8:_093B65F5902F42D293BED1084CA387CF"
-            "WorkingFolder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
+            "WorkingFolder" = "8:_490F7AA809644BA49CAB9BAA9ABA3F57"
             "Icon" = "8:_91E73FF9183B44658E0E94BA132FBAA2"
             "Feature" = "8:"
             }
@@ -856,7 +878,7 @@
             "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
+            "Folder" = "8:_490F7AA809644BA49CAB9BAA9ABA3F57"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -912,7 +934,7 @@
             "SourcePath" = "8:..\\Pike.ConnectionTest\\obj\\Release\\Pike.ConnectionTest.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_6F13250BDC4D45A3A9A7AEF94F688C25"
+            "Folder" = "8:_490F7AA809644BA49CAB9BAA9ABA3F57"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
